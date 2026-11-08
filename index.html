@@ -903,6 +903,527 @@ tr.db-more-row .btn{margin:0 4px;}
   input[type=file]{width:100%;min-height:46px;padding:8px;border:1.5px dashed var(--line);border-radius:12px;background:var(--surface-2);font-size:14px;}
 }
 
+/* =====================================================================
+   v4.3 — HALAMAN MASUK PREMIUM
+   Palet: Deep Navy #061A3A · Royal Blue #0B3B78 · Electric Blue #168BFF
+          Gold #D9A441 · Champagne #F4D58A · Light #F3F7FD
+   ===================================================================== */
+#loginScreen.lx{
+  --lx-navy:#061A3A;--lx-royal:#0B3B78;--lx-blue:#168BFF;--lx-gold:#D9A441;--lx-champ:#F4D58A;--lx-light:#F3F7FD;
+  flex-direction:column;background:var(--lx-navy);color:#fff;overflow-x:hidden;overflow-y:auto;isolation:isolate;
+  font-family:var(--ff-body);
+}
+#loginScreen.lx .lx-bg{position:fixed;inset:0;z-index:-1;overflow:hidden;pointer-events:none;
+  background:
+    radial-gradient(1100px 700px at 18% 20%, rgba(11,59,120,.95), transparent 70%),
+    radial-gradient(900px 600px at 85% 90%, rgba(22,139,255,.22), transparent 65%),
+    linear-gradient(135deg,#061A3A 0%,#0A2C5C 48%,#061A3A 100%);}
+#loginScreen.lx .lx-bg::after{content:"";position:absolute;inset:0;
+  background:linear-gradient(115deg,transparent 30%,rgba(22,139,255,.08) 45%,transparent 60%);background-size:250% 250%;
+  animation:lxSheen 14s ease-in-out infinite;}
+@keyframes lxSheen{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
+.lx-glow{position:absolute;border-radius:50%;filter:blur(40px);opacity:.55;animation:lxFloat 16s ease-in-out infinite;}
+.lx-glow.g1{width:420px;height:420px;left:-120px;top:-140px;background:radial-gradient(circle,rgba(22,139,255,.55),transparent 70%);}
+.lx-glow.g2{width:520px;height:520px;left:40%;bottom:-260px;background:radial-gradient(circle,rgba(217,164,65,.38),transparent 70%);animation-delay:-5s;}
+.lx-glow.g3{width:360px;height:360px;right:4%;top:6%;background:radial-gradient(circle,rgba(22,139,255,.35),transparent 70%);animation-delay:-9s;}
+@keyframes lxFloat{0%,100%{transform:translate(0,0)}50%{transform:translate(24px,-18px)}}
+.lx-curves{position:absolute;inset:0;width:100%;height:100%;}
+
+/* ---- navigasi atas ---- */
+.lx-nav{position:relative;z-index:3;display:flex;align-items:center;gap:28px;padding:22px clamp(20px,4vw,56px) 0;}
+.lx-brand{display:flex;align-items:center;gap:12px;color:#fff;text-decoration:none;padding-right:24px;border-right:1px solid rgba(255,255,255,.16);}
+.lx-emblem{width:46px;height:46px;border-radius:14px;background:#fff;display:grid;place-items:center;
+  box-shadow:0 8px 24px -10px rgba(217,164,65,.8),inset 0 0 0 1px rgba(217,164,65,.45);}
+.lx-emblem img{width:38px;height:38px;object-fit:contain;}
+.lx-word{font-weight:800;font-size:22px;letter-spacing:.6px;line-height:1;}
+.lx-word small{display:block;font-size:10px;letter-spacing:1.6px;color:var(--lx-champ);font-weight:700;margin-top:5px;}
+.lx-links{display:flex;gap:6px;flex-wrap:wrap;}
+.lx-links button{display:inline-flex;align-items:center;gap:8px;border:1px solid transparent;background:transparent;color:#D6E2F5;
+  font:600 14.5px/1 var(--ff-body);padding:10px 16px;border-radius:999px;cursor:pointer;transition:background .2s,color .2s,border-color .2s,box-shadow .2s;}
+.lx-links button i{display:inline-flex;width:17px;height:17px;}
+.lx-links button i svg{width:17px;height:17px;}
+.lx-links button:hover{color:#fff;background:rgba(255,255,255,.07);}
+.lx-links button.on{color:#fff;background:linear-gradient(180deg,rgba(22,139,255,.32),rgba(22,139,255,.14));border-color:rgba(95,176,255,.55);
+  box-shadow:0 0 0 4px rgba(22,139,255,.10),0 8px 26px -10px rgba(22,139,255,.8);}
+.lx-links button:focus-visible,.lx-help:focus-visible{outline:2px solid var(--lx-champ);outline-offset:2px;}
+.lx-help{display:none;margin-left:auto;align-items:center;gap:8px;border:1px solid rgba(255,255,255,.22);background:rgba(255,255,255,.06);color:#fff;
+  font:700 13px/1 var(--ff-body);padding:10px 14px;border-radius:999px;cursor:pointer;}
+.lx-help i{display:inline-flex;}
+.lx-help svg{width:17px;height:17px;}
+
+/* ---- tata letak utama ---- */
+.lx-main{position:relative;z-index:2;flex:1 0 auto;display:grid;grid-template-columns:minmax(0,1.72fr) minmax(400px,1fr);
+  gap:clamp(20px,3vw,48px);padding:24px clamp(20px,4vw,56px) 28px;align-items:center;}
+.lx-hero{min-width:0;}
+.lx-kicker{display:inline-flex;align-items:center;gap:10px;padding:9px 18px;border-radius:999px;font-size:12.5px;font-weight:800;letter-spacing:1.6px;
+  color:var(--lx-champ);border:1.5px solid rgba(217,164,65,.75);background:rgba(6,26,58,.55);box-shadow:0 0 22px -8px rgba(217,164,65,.8);}
+.lx-kicker i{display:inline-flex;}
+.lx-kicker svg{width:16px;height:16px;}
+.lx-h{font-family:var(--ff-display);font-size:clamp(34px,3.6vw,56px);line-height:1.08;font-weight:800;letter-spacing:-1px;margin:22px 0 16px;color:#fff;}
+.lx-h em{font-style:normal;background:linear-gradient(90deg,#F4D58A,#D9A441 55%,#F4D58A);-webkit-background-clip:text;background-clip:text;color:transparent;
+  background-size:200% 100%;animation:lxGold 8s ease-in-out infinite;}
+@keyframes lxGold{0%,100%{background-position:0% 0}50%{background-position:100% 0}}
+.lx-lead{max-width:640px;color:#D3DDEE;font-size:clamp(14.5px,1.15vw,17px);line-height:1.65;margin:0 0 26px;}
+
+.lx-feats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;max-width:820px;border-radius:22px;}
+.lx-feat{position:relative;display:flex;flex-direction:column;align-items:center;text-align:center;gap:6px;padding:20px 12px 18px;border-radius:18px;
+  background:linear-gradient(180deg,rgba(255,255,255,.09),rgba(255,255,255,.03));border:1px solid rgba(255,255,255,.14);
+  backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);transition:transform .25s ease,border-color .25s,box-shadow .25s;}
+.lx-feat:hover{transform:translateY(-4px);border-color:rgba(244,213,138,.55);box-shadow:0 18px 40px -20px rgba(22,139,255,.65),0 0 0 1px rgba(244,213,138,.18) inset;}
+.lx-feat i{display:grid;place-items:center;width:46px;height:46px;border-radius:14px;color:var(--lx-champ);
+  background:radial-gradient(circle at 30% 20%,rgba(244,213,138,.28),rgba(22,139,255,.14));border:1px solid rgba(244,213,138,.3);}
+.lx-feat i svg{width:24px;height:24px;}
+.lx-feat b{font-size:15.5px;color:#fff;margin-top:6px;}
+.lx-feat span{font-size:12.5px;color:#B9C7DE;line-height:1.35;}
+
+.lx-show{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(220px,1fr);gap:20px;align-items:center;margin-top:28px;max-width:860px;}
+.lx-laptop{margin:0;min-width:0;}
+.lx-screen{display:grid;grid-template-columns:96px minmax(0,1fr);gap:0;border-radius:14px 14px 4px 4px;overflow:hidden;
+  border:7px solid #0C1424;border-bottom-width:9px;background:linear-gradient(160deg,#0B2550,#071A3A);
+  box-shadow:0 30px 60px -24px rgba(0,0,0,.75),0 0 0 1px rgba(255,255,255,.08),0 0 50px -10px rgba(22,139,255,.35);
+  transform:perspective(1400px) rotateY(9deg) rotateX(3deg);transform-origin:left center;}
+.lx-base{height:12px;margin:0 -2% 0 2%;border-radius:0 0 14px 14px;background:linear-gradient(180deg,#2A3346,#121927);
+  transform:perspective(1400px) rotateY(9deg);transform-origin:left center;box-shadow:0 14px 26px -10px rgba(0,0,0,.7);}
+.lx-laptop figcaption{font-size:11px;color:#8FA3C4;margin-top:10px;}
+.lx-sb{background:rgba(3,14,34,.6);padding:10px 8px;display:flex;flex-direction:column;gap:4px;font-size:9.5px;color:#9FB2D2;}
+.lx-sb-brand{display:flex;align-items:center;gap:5px;margin-bottom:6px;color:#fff;font-size:10px;}
+.lx-sb-brand img{width:16px;height:16px;border-radius:4px;background:#fff;}
+.lx-sb span{display:flex;align-items:center;gap:5px;padding:5px 6px;border-radius:6px;}
+.lx-sb span i{display:inline-flex;}
+.lx-sb span svg{width:11px;height:11px;}
+.lx-sb span.on{background:var(--lx-blue);color:#fff;font-weight:700;}
+.lx-dash{padding:10px 12px 12px;min-width:0;}
+.lx-dh{display:flex;justify-content:space-between;align-items:flex-start;}
+.lx-dh b{font-size:13px;color:#fff;display:block;}
+.lx-dh small{font-size:8.5px;color:#8FA3C4;}
+.lx-demo{font-size:8px;font-weight:800;letter-spacing:.8px;color:var(--lx-champ);border:1px solid rgba(244,213,138,.45);padding:2px 6px;border-radius:999px;text-transform:uppercase;}
+.lx-kpis{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;margin-top:8px;}
+.lx-kpis div{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08);border-radius:8px;padding:6px 7px;}
+.lx-kpis small{display:block;font-size:7.5px;color:#9FB2D2;}
+.lx-kpis b{display:block;font-size:12.5px;color:#fff;margin-top:2px;white-space:nowrap;}
+.lx-kpis em{font-style:normal;font-size:7.5px;color:#41D49A;font-weight:700;}
+.lx-charts{display:grid;grid-template-columns:minmax(0,1.7fr) minmax(0,1fr);gap:6px;margin-top:6px;}
+.lx-chart,.lx-donut{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:8px;padding:6px 7px;}
+.lx-chart small,.lx-donut small{display:block;font-size:7.5px;color:#9FB2D2;margin-bottom:3px;}
+.lx-chart svg{display:block;width:100%;height:62px;}
+.lx-donut{display:flex;flex-direction:column;align-items:center;}
+.lx-donut svg{width:62px;height:62px;}
+.lx-line{stroke-dasharray:320;stroke-dashoffset:320;}
+.lx-arc{stroke-dashoffset:137;}
+#loginScreen.lx-ready .lx-line{animation:lxDraw 1.8s .6s ease-out forwards;}
+#loginScreen.lx-ready .lx-arc{animation:lxArc 1.6s .8s ease-out forwards;}
+@keyframes lxDraw{to{stroke-dashoffset:0}}
+@keyframes lxArc{to{stroke-dashoffset:0}}
+
+.lx-perks{list-style:none;margin:0;padding:6px;border-radius:18px;background:rgba(6,26,58,.55);border:1px solid rgba(255,255,255,.12);
+  backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);}
+.lx-perks li{display:flex;align-items:center;gap:12px;padding:11px 12px;}
+.lx-perks li + li{border-top:1px solid rgba(255,255,255,.08);}
+.lx-perks i{flex:none;display:grid;place-items:center;width:30px;height:30px;border-radius:50%;color:#fff;
+  border:1.5px solid rgba(95,176,255,.85);box-shadow:0 0 14px -2px rgba(22,139,255,.7);}
+.lx-perks i svg{width:15px;height:15px;}
+.lx-perks b{display:block;font-size:15px;color:#fff;}
+.lx-perks span{font-size:12.5px;color:#B9C7DE;}
+.lx-flash{animation:lxFlash 1.4s ease;}
+@keyframes lxFlash{0%{box-shadow:0 0 0 0 rgba(244,213,138,0)}25%{box-shadow:0 0 0 6px rgba(244,213,138,.45)}100%{box-shadow:0 0 0 0 rgba(244,213,138,0)}}
+
+/* ---- panel masuk ---- */
+#loginScreen.lx .login-side{flex:none;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:0;background:transparent;min-width:0;}
+#loginScreen.lx .login-card{width:100%;max-width:470px;border-radius:30px;padding:30px clamp(22px,2.4vw,38px) 22px;color:var(--navy-900);
+  background:linear-gradient(180deg,rgba(255,255,255,.97),rgba(243,247,253,.96));
+  border:1px solid rgba(255,255,255,.85);
+  box-shadow:0 40px 80px -30px rgba(0,0,0,.65),0 0 0 6px rgba(255,255,255,.06),0 0 70px -20px rgba(22,139,255,.55);
+  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);}
+#loginScreen.lx .login-card::before{content:"";position:absolute;inset:-1px;border-radius:30px;padding:1px;pointer-events:none;
+  background:linear-gradient(140deg,rgba(244,213,138,.9),rgba(255,255,255,0) 35%,rgba(22,139,255,0) 65%,rgba(22,139,255,.7));
+  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;}
+#loginScreen.lx .login-logo{width:min(290px,80%);height:auto;margin:0 auto 4px;display:block;}
+#loginScreen.lx .login-title{font-size:27px;margin:12px 0 4px;color:#0A1F44;letter-spacing:-.4px;}
+#loginScreen.lx .login-sub{font-size:14px;color:#4A5873;margin:0 0 16px;font-weight:600;}
+#loginScreen.lx .login-card .field{margin-bottom:14px;}
+#loginScreen.lx .login-card .field > label{display:flex;align-items:center;gap:8px;font-size:13.5px;font-weight:800;color:#0A1F44;margin-bottom:7px;}
+#loginScreen.lx .login-card .field > label i,#loginScreen.lx .login-card .field > label svg{display:inline-flex;width:17px;height:17px;color:#2B4A7E;}
+#loginScreen.lx .login-card .field > label i svg{width:17px;height:17px;}
+#loginScreen.lx .input-icon-wrap .input-icon{left:16px;opacity:1;color:#5B6C8A;display:inline-flex;}
+#loginScreen.lx .input-icon-wrap .input-icon svg,#loginScreen.lx .input-icon-wrap .input-icon i{display:inline-flex;width:19px;height:19px;}
+#loginScreen.lx .input-icon-wrap input{padding-left:48px !important;}
+#loginScreen.lx .login-card input[type=text],#loginScreen.lx .login-card input[type=password],#loginScreen.lx .login-card input[type=email]{
+  height:54px;border-radius:15px;font-size:16px;background:#fff;border:1.5px solid #DCE4F0;color:#0A1F44;
+  box-shadow:0 1px 2px rgba(10,31,68,.04);transition:border-color .2s,box-shadow .2s,background .2s;}
+#loginScreen.lx .login-card input:hover{border-color:#C3D1E6;}
+#loginScreen.lx .login-card input:focus{border-color:var(--lx-blue);box-shadow:0 0 0 4px rgba(22,139,255,.16);background:#fff;outline:none;}
+#loginScreen.lx .login-card input:disabled{background:#EEF3FA;color:#4A5873;}
+#loginScreen.lx .has-eye input{padding-right:52px !important;}
+.pw-wrap{position:relative;}
+.pw-eye{position:absolute;right:8px;top:50%;transform:translateY(-50%);width:40px;height:40px;border:0;border-radius:12px;background:transparent;
+  color:#5B6C8A;cursor:pointer;display:grid;place-items:center;transition:background .2s,color .2s;}
+.pw-eye svg{width:20px;height:20px;}
+.pw-eye:hover{background:#EEF3FA;color:#0B3B78;}
+.pw-eye:focus-visible{outline:2px solid var(--lx-blue);outline-offset:1px;}
+#loginScreen.lx .branch-hint{font-size:12.5px;}
+.lx-remember{display:flex;align-items:center;gap:10px;margin:2px 0 16px;font-size:13.5px;font-weight:600;color:#33415C;cursor:pointer;user-select:none;}
+.lx-remember input{appearance:none;-webkit-appearance:none;flex:none;width:20px;height:20px;border-radius:6px;border:1.5px solid #B9C6DB;background:#fff;
+  display:grid;place-items:center;cursor:pointer;transition:background .2s,border-color .2s;margin:0;}
+.lx-remember input:checked{background:var(--lx-royal);border-color:var(--lx-royal);}
+.lx-remember input:checked::after{content:"";width:10px;height:6px;border:2.5px solid #fff;border-top:0;border-right:0;transform:rotate(-45deg) translate(1px,-1px);}
+.lx-remember input:focus-visible{outline:2px solid var(--lx-blue);outline-offset:2px;}
+#loginForm:not([data-stage="nip"]):not([data-stage="password"]) .lx-remember{display:none;}
+#loginScreen.lx .login-links{margin:-4px 0 12px;}
+#loginScreen.lx .login-link,#loginScreen.lx .login-change a{color:#0B5CC4;font-weight:700;font-size:13.5px;}
+#loginScreen.lx .login-link:hover,#loginScreen.lx .login-change a:hover{text-decoration:underline;}
+
+#loginScreen.lx .login-card .btn.primary{position:relative;width:100%;height:56px;border-radius:16px;border:0;font-size:16.5px;font-weight:800;gap:12px;
+  justify-content:center;color:#fff;letter-spacing:.2px;overflow:hidden;
+  background:linear-gradient(135deg,#0B3B78 0%,#0A2C5C 45%,#1565D8 100%);
+  box-shadow:0 14px 30px -14px rgba(11,59,120,.9),inset 0 1px 0 rgba(255,255,255,.18),inset 0 -2px 0 rgba(0,0,0,.18);
+  transition:transform .15s ease,box-shadow .25s ease,filter .25s;}
+#loginScreen.lx .login-card .btn.primary::after{content:"";width:20px;height:20px;flex:none;background:currentColor;
+  -webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12h14M13 6l6 6-6 6'/%3E%3C/svg%3E") center/contain no-repeat;
+          mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12h14M13 6l6 6-6 6'/%3E%3C/svg%3E") center/contain no-repeat;
+  transition:transform .2s;}
+#loginScreen.lx .login-card .btn.primary:hover{box-shadow:0 18px 36px -14px rgba(22,139,255,.9),0 0 0 4px rgba(22,139,255,.14),inset 0 1px 0 rgba(255,255,255,.2);filter:brightness(1.06);}
+#loginScreen.lx .login-card .btn.primary:hover::after{transform:translateX(3px);}
+#loginScreen.lx .login-card .btn.primary:active{transform:translateY(1px);}
+#loginScreen.lx .login-card .btn.primary:focus-visible{outline:3px solid var(--lx-champ);outline-offset:2px;}
+#loginScreen.lx .login-card .btn.primary:disabled{cursor:progress;filter:saturate(.85);}
+#loginScreen.lx .login-card .btn.primary:disabled::after{width:20px;height:20px;border-radius:50%;background:none;-webkit-mask:none;mask:none;
+  border:2.5px solid rgba(255,255,255,.35);border-top-color:#fff;animation:spinRing .7s linear infinite;}
+#loginScreen.lx .login-foot{font-size:12.5px;color:#5B6C8A;margin-top:12px;}
+#loginScreen.lx .login-alt{border-top:0;margin-top:6px;padding-top:0;gap:12px;}
+.lx-or{display:flex;align-items:center;gap:12px;width:100%;color:#6B7A95;font-size:13px;font-weight:600;}
+.lx-or::before,.lx-or::after{content:"";flex:1;height:1px;background:#DCE4F0;}
+#loginScreen.lx .alt-btn{border:1.5px solid #C9D6EA;background:#fff;border-radius:16px;padding:12px 14px;transition:border-color .2s,box-shadow .2s,transform .2s;}
+#loginScreen.lx .alt-btn:hover{border-color:var(--lx-blue);box-shadow:0 10px 26px -16px rgba(22,139,255,.9);transform:translateY(-1px);}
+#loginScreen.lx .alt-btn span{background:linear-gradient(135deg,#0B3B78,#168BFF);color:#fff;box-shadow:none;}
+#loginScreen.lx .alt-btn span i,#loginScreen.lx .alt-btn span svg{display:inline-flex;width:20px;height:20px;}
+#loginScreen.lx .alt-btn b{color:#0A1F44;}
+#loginScreen.lx .alt-btn small{color:#5B6C8A;font-size:12px;}
+#loginScreen.lx .login-secure{margin-top:18px;color:#4A5873;font-size:12px;gap:7px;text-align:center;}
+#loginScreen.lx .login-secure i,#loginScreen.lx .login-secure svg{display:inline-flex;width:15px;height:15px;color:#0B5CC4;}
+#loginScreen.lx .login-credit{position:static;margin-top:16px;font-size:12px;color:#AFC0DA;text-align:center;}
+#loginScreen.lx .reg-sec{color:#B07A12;}
+#loginScreen.lx .reg-note{background:#EEF3FA;color:#33415C;}
+
+/* ---- jendela info ---- */
+.lx-modal{position:fixed;inset:0;z-index:60;display:grid;place-items:center;padding:16px;background:rgba(3,12,28,.62);
+  backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);opacity:0;transition:opacity .2s;}
+.lx-modal.on{opacity:1;}
+.lx-modal-box{position:relative;width:min(560px,100%);max-height:86vh;overflow:auto;background:#fff;color:#0A1F44;border-radius:24px;padding:26px 24px 22px;
+  box-shadow:0 40px 80px -30px rgba(0,0,0,.7);transform:translateY(10px) scale(.98);transition:transform .25s ease;}
+.lx-modal.on .lx-modal-box{transform:none;}
+.lx-modal-box h3{margin:0 40px 14px 0;font-size:20px;}
+.lx-x{position:absolute;right:14px;top:14px;width:40px;height:40px;border-radius:12px;border:0;background:#EEF3FA;color:#0A1F44;cursor:pointer;display:grid;place-items:center;}
+.lx-x svg{width:18px;height:18px;}
+.lx-modal details{border:1px solid #DCE4F0;border-radius:14px;padding:12px 14px;margin-bottom:10px;}
+.lx-modal summary{cursor:pointer;font-weight:800;font-size:14.5px;}
+.lx-modal details p{margin:8px 0 0;font-size:14px;line-height:1.6;color:#33415C;}
+.lx-sol{display:grid;gap:12px;}
+.lx-sol > div{display:grid;grid-template-columns:auto 1fr;column-gap:12px;row-gap:2px;padding:14px;border:1px solid #DCE4F0;border-radius:16px;}
+.lx-sol i{grid-row:1/3;width:42px;height:42px;border-radius:12px;display:grid;place-items:center;color:#fff;background:linear-gradient(135deg,#0B3B78,#168BFF);}
+.lx-sol i svg{width:20px;height:20px;}
+.lx-sol b{font-size:15px;}
+.lx-sol span{font-size:13.5px;color:#4A5873;line-height:1.5;}
+
+/* ---- animasi masuk ---- */
+#loginScreen.lx .lx-nav,#loginScreen.lx .lx-kicker,#loginScreen.lx .lx-h,#loginScreen.lx .lx-lead,#loginScreen.lx .lx-feat,#loginScreen.lx .lx-show,#loginScreen.lx .login-card{
+  opacity:0;transform:translateY(18px);}
+#loginScreen.lx.lx-ready .lx-nav,#loginScreen.lx.lx-ready .lx-kicker,#loginScreen.lx.lx-ready .lx-h,#loginScreen.lx.lx-ready .lx-lead,
+#loginScreen.lx.lx-ready .lx-feat,#loginScreen.lx.lx-ready .lx-show,#loginScreen.lx.lx-ready .login-card{
+  opacity:1;transform:none;transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.2,1);}
+#loginScreen.lx.lx-ready .lx-kicker{transition-delay:.08s}
+#loginScreen.lx.lx-ready .lx-h{transition-delay:.16s}
+#loginScreen.lx.lx-ready .lx-lead{transition-delay:.24s}
+#loginScreen.lx.lx-ready .lx-feat:nth-child(1){transition-delay:.32s}
+#loginScreen.lx.lx-ready .lx-feat:nth-child(2){transition-delay:.38s}
+#loginScreen.lx.lx-ready .lx-feat:nth-child(3){transition-delay:.44s}
+#loginScreen.lx.lx-ready .lx-feat:nth-child(4){transition-delay:.50s}
+#loginScreen.lx.lx-ready .lx-show{transition-delay:.56s}
+#loginScreen.lx.lx-ready .login-card{transition-delay:.12s}
+#loginScreen.lx.lx-ready .lx-feat:hover{transform:translateY(-4px);transition-delay:0s;}
+@media (prefers-reduced-motion: reduce){
+  #loginScreen.lx *,#loginScreen.lx *::before,#loginScreen.lx *::after{animation:none !important;transition:none !important;}
+  #loginScreen.lx .lx-nav,#loginScreen.lx .lx-kicker,#loginScreen.lx .lx-h,#loginScreen.lx .lx-lead,#loginScreen.lx .lx-feat,#loginScreen.lx .lx-show,#loginScreen.lx .login-card{opacity:1;transform:none;}
+  .lx-line,.lx-arc{stroke-dashoffset:0;}
+}
+
+/* ---- layar sedang (laptop kecil / tablet mendatar) ---- */
+@media (max-width:1280px){
+  .lx-nav{gap:16px;}
+  .lx-links button{padding:9px 12px;font-size:13.5px;}
+  .lx-show{grid-template-columns:minmax(0,1fr);}
+  .lx-perks{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));}
+  .lx-perks li + li{border-top:0;}
+  .lx-laptop{max-width:560px;}
+}
+/* ---- tablet ---- */
+@media (max-width:1024px){
+  .lx-main{grid-template-columns:minmax(0,1fr);max-width:760px;margin:0 auto;width:100%;}
+  .lx-hero{display:contents;}
+  .lx-kicker{order:1;justify-self:start;}
+  .lx-h{order:2;margin:0;}
+  .lx-lead{order:3;margin:0;}
+  #loginScreen.lx .login-side{order:4;}
+  .lx-feats{order:5;grid-template-columns:repeat(2,minmax(0,1fr));max-width:none;}
+  .lx-show{order:6;margin-top:0;max-width:none;}
+  .lx-links{display:none;}
+  .lx-help{display:inline-flex;}
+  .lx-brand{border-right:0;padding-right:0;}
+  .lx-laptop{max-width:none;}
+}
+/* ---- HP: masuk jadi fokus utama ---- */
+@media (max-width:600px){
+  .lx-nav{padding:calc(var(--safe-t,0px) + 14px) 16px 0;}
+  .lx-emblem{width:40px;height:40px;border-radius:12px;}
+  .lx-emblem img{width:32px;height:32px;}
+  .lx-word{font-size:19px;}
+  .lx-word small{font-size:8.5px;letter-spacing:1.2px;}
+  .lx-help span{display:none;}
+  .lx-help{padding:10px;}
+  .lx-main{padding:14px 16px 24px;gap:16px;}
+  .lx-kicker{display:none;}
+  .lx-h{font-size:27px;letter-spacing:-.5px;line-height:1.15;}
+  .lx-lead{display:none;}
+  #loginScreen.lx .login-card{border-radius:24px;padding:22px 18px 18px;max-width:none;}
+  #loginScreen.lx .login-card::before{border-radius:24px;}
+  #loginScreen.lx .login-logo{width:min(220px,70%);}
+  #loginScreen.lx .login-title{font-size:23px;}
+  .lx-feats{gap:10px;}
+  .lx-feat{padding:16px 10px 14px;}
+  .lx-feat b{font-size:14.5px;}
+  .lx-laptop{display:none;}
+  .lx-perks{grid-template-columns:minmax(0,1fr) minmax(0,1fr);}
+  .lx-perks li{padding:10px 8px;gap:9px;}
+  .lx-perks b{font-size:14px;}
+  .lx-perks span{font-size:12px;}
+}
+@media (max-width:360px){
+  .lx-feats,.lx-perks{grid-template-columns:minmax(0,1fr);}
+}
+
+/* layar lebar: isi hero ikut membesar, tidak menyisakan ruang kosong */
+@media (min-width:1600px){
+  .lx-feats{max-width:960px;}
+  .lx-show{max-width:1000px;}
+  .lx-lead{max-width:720px;}
+  #loginScreen.lx .login-card{max-width:500px;}
+}
+#loginScreen.lx .login-card-inner > picture{display:block;}
+
+@media (max-width:600px){
+  .lx-h{font-size:21px;line-height:1.22;letter-spacing:-.3px;}
+  #loginScreen.lx .login-logo{width:min(190px,62%);}
+  #loginScreen.lx .login-title{font-size:21px;margin-top:8px;}
+  #loginScreen.lx .login-sub{margin-bottom:12px;}
+}
+
+/* =====================================================================
+   v4.4 — mengikuti gambar referensi (foto gedung, NIP + password, menu HP)
+   ===================================================================== */
+#loginScreen.lx{--lx-navy2:#0B2854;}
+/* foto gedung (desktop): di antara judul & panel masuk, tepi memudar */
+.lx-building{position:absolute;top:0;bottom:0;right:33.5%;height:100%;width:clamp(300px,25vw,520px);object-fit:cover;object-position:50% 22%;
+  -webkit-mask-image:linear-gradient(90deg,transparent 0,#000 26%,#000 88%,transparent 100%),linear-gradient(180deg,#000 72%,transparent 98%);
+  -webkit-mask-composite:source-in;mask-image:linear-gradient(90deg,transparent 0,#000 26%,#000 88%,transparent 100%),linear-gradient(180deg,#000 72%,transparent 98%);
+  mask-composite:intersect;opacity:.96;animation:lxDrift 22s ease-in-out infinite alternate;}
+@keyframes lxDrift{from{transform:scale(1.02) translateY(0)}to{transform:scale(1.06) translateY(-10px)}}
+.lx-swoosh{position:absolute;inset:0;width:100%;height:100%;filter:drop-shadow(0 0 6px rgba(244,213,138,.7));}
+.lx-bmob{display:none;}
+.lx-curves path{stroke-width:2;}
+/* logo emas tanpa kotak putih */
+.lx-emblem-img{width:auto;height:52px;filter:drop-shadow(0 4px 14px rgba(217,164,65,.45));}
+.lx-burger{display:none;margin-left:auto;width:48px;height:48px;border-radius:14px;border:1px solid rgba(95,176,255,.55);background:rgba(6,26,58,.5);
+  color:#fff;cursor:pointer;place-items:center;box-shadow:0 0 18px -6px rgba(22,139,255,.8);}
+.lx-burger i,.lx-burger svg{display:inline-flex;width:22px;height:22px;}
+/* kaca terang pada kartu fitur & bingkai biru tipis */
+.lx-feat{border-color:rgba(95,176,255,.35);background:linear-gradient(180deg,rgba(22,139,255,.14),rgba(6,26,58,.42));}
+.lx-feat i{background:none;border:0;width:auto;height:auto;color:#F4D58A;filter:drop-shadow(0 0 8px rgba(244,213,138,.45));}
+.lx-feat i svg{width:34px;height:34px;stroke-width:1.8;}
+/* panel masuk: kaca putih kebiruan + tepi emas bercahaya */
+#loginScreen.lx .login-card{background:linear-gradient(160deg,rgba(255,255,255,.97),rgba(236,243,253,.94) 60%,rgba(224,236,252,.92));
+  border-radius:34px;box-shadow:-10px 0 34px -14px rgba(244,213,138,.75),0 40px 80px -30px rgba(0,0,0,.6),0 0 80px -20px rgba(22,139,255,.6);}
+#loginScreen.lx .login-card::before{border-radius:34px;padding:2px;background:linear-gradient(150deg,rgba(244,213,138,1),rgba(244,213,138,.25) 22%,rgba(255,255,255,0) 45%,rgba(22,139,255,0) 70%,rgba(244,213,138,.9));}
+#loginScreen.lx .login-card input[type=text],#loginScreen.lx .login-card input[type=password],#loginScreen.lx .login-card input[type=email]{background:#F1F5FB;border-color:#DCE4F0;}
+#loginScreen.lx .login-card input:focus{background:#fff;}
+#loginScreen.lx .login-title{font-size:30px;}
+#loginScreen.lx .login-sub{font-size:14.5px;color:#33415C;}
+.lx-ws{display:flex;align-items:center;justify-content:center;gap:8px;margin:-8px 0 14px;font-size:12.5px;color:#4A5873;font-weight:600;}
+.lx-ws[hidden]{display:none;}
+.lx-ws i,.lx-ws svg{display:inline-flex;width:15px;height:15px;color:#0B5CC4;}
+.lx-ws .login-link{font-size:12.5px;}
+#loginScreen.ws-ok #loginBranchField{display:none !important;}
+.lx-row{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:2px 0 18px;}
+.lx-row .lx-remember{margin:0;}
+#loginForm:not([data-stage="nip"]) #lxPwField{display:none;}
+#loginForm:not([data-stage="nip"]):not([data-stage="password"]) #lxRememberRow{display:none;}
+#loginForm[data-stage="password"] .login-links{justify-content:flex-end;margin-top:-2px;}
+/* tombol Masuk: gembok kiri, panah kanan */
+#loginScreen.lx .login-card .btn.primary{height:58px;font-size:17px;}
+#loginScreen.lx .login-card .btn.primary::before{content:"";width:20px;height:20px;flex:none;background:currentColor;margin-right:2px;
+  -webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.3' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='4' y='11' width='16' height='10' rx='2'/%3E%3Cpath d='M8 11V7a4 4 0 0 1 8 0v4'/%3E%3C/svg%3E") center/contain no-repeat;
+          mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.3' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='4' y='11' width='16' height='10' rx='2'/%3E%3Cpath d='M8 11V7a4 4 0 0 1 8 0v4'/%3E%3C/svg%3E") center/contain no-repeat;}
+#loginScreen.lx .login-card .btn.primary::after{position:absolute;right:24px;top:50%;margin-top:-10px;}
+#loginScreen.lx .login-card .btn.primary:hover::after{transform:translateX(3px);}
+#loginScreen.lx .login-card .btn.primary:disabled::before{display:none;}
+#loginScreen.lx .login-credit{position:static;margin-top:8px;color:#5B6C8A;font-size:12px;}
+#loginScreen.lx .login-credit span{margin:0 6px;opacity:.6;}
+#loginScreen.lx .login-secure{margin-top:20px;font-size:13px;}
+
+/* ---- tablet & HP: komposisi khusus seperti referensi HP ---- */
+@media (max-width:1024px){
+  .lx-building{display:none;}
+  .lx-swoosh{display:none;}
+  .lx-bmob{display:block;position:absolute;top:-6px;right:-16px;width:min(62%,460px);height:auto;z-index:-1;pointer-events:none;
+    -webkit-mask-image:linear-gradient(90deg,transparent 0,#000 34%),linear-gradient(180deg,#000 70%,transparent 100%);
+    -webkit-mask-composite:source-in;mask-image:linear-gradient(90deg,transparent 0,#000 34%),linear-gradient(180deg,#000 70%,transparent 100%);mask-composite:intersect;opacity:.95;}
+  .lx-main{position:relative;}
+  .lx-burger{display:grid;}
+  .lx-help{display:none !important;}
+  .lx-links{display:none;position:absolute;top:calc(100% + 8px);right:clamp(16px,4vw,56px);z-index:20;flex-direction:column;gap:4px;padding:8px;width:220px;
+    border-radius:18px;background:rgba(6,26,58,.96);border:1px solid rgba(95,176,255,.35);box-shadow:0 24px 50px -20px rgba(0,0,0,.8);}
+  #loginScreen.menu-open .lx-links{display:flex;}
+  .lx-links button{width:100%;justify-content:flex-start;padding:12px 14px;font-size:15px;}
+  .lx-nav{position:relative;}
+  /* urutan: judul, deskripsi, fitur, lalu panel masuk */
+  .lx-kicker{order:1;display:inline-flex !important;}
+  .lx-h{order:2;}
+  .lx-lead{order:3;display:block !important;max-width:72%;}
+  .lx-feats{order:4;}
+  #loginScreen.lx .login-side{order:5;position:relative;}
+  #loginScreen.lx .login-side::before{content:"";position:absolute;left:-30%;right:-30%;top:-46px;height:120px;z-index:-1;pointer-events:none;
+    background:radial-gradient(60% 40px at 50% 100%,rgba(244,213,138,.0),transparent),
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 120' preserveAspectRatio='none'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' x2='1'%3E%3Cstop offset='0' stop-color='%23F4D58A' stop-opacity='0'/%3E%3Cstop offset='.5' stop-color='%23F4D58A'/%3E%3Cstop offset='1' stop-color='%23D9A441' stop-opacity='0'/%3E%3C/linearGradient%3E%3ClinearGradient id='b' x1='0' x2='1'%3E%3Cstop offset='0' stop-color='%23168BFF' stop-opacity='0'/%3E%3Cstop offset='.5' stop-color='%235FB0FF'/%3E%3Cstop offset='1' stop-color='%23168BFF' stop-opacity='0'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath d='M0 110 Q200 10 400 70' fill='none' stroke='url(%23g)' stroke-width='3'/%3E%3Cpath d='M0 118 Q210 30 400 84' fill='none' stroke='url(%23b)' stroke-width='2'/%3E%3C/svg%3E") center/100% 100% no-repeat;
+    filter:drop-shadow(0 0 6px rgba(244,213,138,.6));}
+  .lx-show{display:none;}
+}
+@media (max-width:600px){
+  .lx-emblem-img{height:44px;}
+  .lx-nav{gap:10px;}
+  .lx-burger{width:46px;height:46px;}
+  .lx-main{gap:18px;padding-top:18px;}
+  .lx-kicker{padding:7px 14px;font-size:11.5px;}
+  .lx-h{font-size:clamp(24px,7.2vw,30px);line-height:1.14;letter-spacing:-.5px;}
+  .lx-lead{font-size:14px;line-height:1.55;max-width:78%;}
+  .lx-bmob{top:56px;width:64%;}
+  .lx-feats{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;}
+  .lx-feat{padding:16px 8px 14px;}
+  .lx-feat i svg{width:30px;height:30px;}
+  .lx-feat b{font-size:14px;}
+  .lx-feat span{font-size:12px;}
+  #loginScreen.lx .login-card{border-radius:30px;padding:24px 18px 20px;}
+  #loginScreen.lx .login-card::before{border-radius:30px;}
+  #loginScreen.lx .login-logo{width:min(230px,72%);}
+  #loginScreen.lx .login-title{font-size:25px;}
+  #loginScreen.lx .login-sub{font-size:13.5px;}
+  .lx-row{font-size:13px;}
+  .lx-row .lx-remember span{font-size:14px;}
+  #loginScreen.lx .login-credit{font-size:11.5px;}
+}
+@media (max-width:360px){
+  .lx-feats{grid-template-columns:repeat(2,minmax(0,1fr));}
+  .lx-lead{max-width:none;}
+  .lx-word small{font-size:7.5px;letter-spacing:.8px;}
+  .lx-word{font-size:17px;}
+}
+@media (max-width:1024px){ .lx-main{overflow-x:clip;} }
+@media (min-width:1025px){
+  .lx-nav{padding-left:clamp(20px,6vw,110px);padding-right:clamp(20px,3vw,56px);}
+  .lx-main{padding-left:clamp(20px,6vw,110px);}
+  .lx-h{font-size:clamp(32px,3.15vw,54px);}
+  .lx-building{right:30.5%;width:clamp(300px,23vw,500px);}
+}
+#loginFormWrap:has(#loginForm[data-stage="nip"]) .login-foot{display:none;}
+@media (max-width:1024px){ .lx-main{align-content:start;align-items:start;} }
+@media (max-width:600px){ .lx-kicker{position:relative;z-index:1;} .lx-bmob{top:64px;width:60%;} }
+@media (max-width:600px){
+  .lx-bmob{top:58px;right:-10px;width:58%;opacity:.9;}
+  .lx-h,.lx-lead{text-shadow:0 2px 14px rgba(3,12,28,.85),0 0 2px rgba(3,12,28,.6);position:relative;z-index:1;}
+  .lx-lead{max-width:60%;font-size:13.5px;}
+  .lx-feats{position:relative;z-index:1;margin-top:4px;}
+}
+@media (max-width:360px){ .lx-lead{max-width:66%;font-size:13px;} }
+@media (max-width:1024px){
+  .lx-h em{text-shadow:none;filter:drop-shadow(0 2px 8px rgba(3,12,28,.8));}
+  .lx-bmob{-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 34%),linear-gradient(180deg,transparent 0,#000 14%,#000 70%,transparent 100%);
+    mask-image:linear-gradient(90deg,transparent 0,#000 34%),linear-gradient(180deg,transparent 0,#000 14%,#000 70%,transparent 100%);}
+}
+@media (min-width:601px) and (max-width:1024px){
+  .lx-bmob{width:min(44%,380px);top:40px;right:0;}
+  .lx-lead{max-width:58%;}
+  .lx-feats{grid-template-columns:repeat(4,minmax(0,1fr));}
+  #loginScreen.lx .login-side{max-width:520px;width:100%;justify-self:center;}
+}
+
+/* =====================================================================
+   v4.5 — penyempurnaan visual (QC terhadap referensi)
+   ===================================================================== */
+/* langit lebih terang ala blue hour */
+#loginScreen.lx .lx-bg{background:
+    radial-gradient(900px 520px at 60% 8%, rgba(22,139,255,.42), transparent 70%),
+    radial-gradient(1100px 700px at 15% 25%, rgba(11,59,120,.95), transparent 72%),
+    radial-gradient(700px 420px at 92% 100%, rgba(22,139,255,.28), transparent 70%),
+    linear-gradient(140deg,#071E44 0%,#0B3B78 46%,#082A5A 70%,#061A3A 100%);}
+.lx-sky{position:absolute;border-radius:50%;pointer-events:none;filter:blur(30px);}
+.lx-sky.s1{width:560px;height:300px;right:-120px;top:-150px;background:radial-gradient(closest-side,rgba(127,193,255,.75),transparent);animation:lxFloat 18s ease-in-out infinite;}
+.lx-sky.s2{width:420px;height:420px;left:46%;top:24%;background:radial-gradient(closest-side,rgba(244,213,138,.22),transparent);animation:lxFloat 24s ease-in-out infinite reverse;}
+.lx-arcs{position:absolute;inset:0;width:100%;height:100%;filter:drop-shadow(0 0 8px rgba(95,176,255,.8));}
+/* gedung: skala asli seperti referensi, lebih terang, tepi lembut */
+.lx-bwrap{position:absolute;top:0;right:35.4%;width:clamp(230px,14.6vw,430px);aspect-ratio:678/1626;max-height:100%;overflow:hidden;
+  -webkit-mask-image:linear-gradient(90deg,transparent 0,#000 16%,#000 100%),linear-gradient(180deg,#000 66%,transparent 96%);-webkit-mask-composite:source-in;
+  mask-image:linear-gradient(90deg,transparent 0,#000 16%,#000 100%),linear-gradient(180deg,#000 66%,transparent 96%);mask-composite:intersect;}
+.lx-bwrap .lx-building{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 0;right:auto;top:auto;bottom:auto;
+  -webkit-mask-image:none;mask-image:none;opacity:1;filter:saturate(1.05);animation:lxDrift 26s ease-in-out infinite alternate;}
+@keyframes lxDrift{from{transform:scale(1.0) translateY(0)}to{transform:scale(1.04) translateY(-8px)}}
+.lx-bshine{position:absolute;inset:-20% -60%;background:linear-gradient(105deg,transparent 42%,rgba(255,255,255,.16) 49%,rgba(244,213,138,.12) 52%,transparent 58%);
+  mix-blend-mode:screen;transform:translateX(-60%);animation:lxShine 9s ease-in-out 1.5s infinite;}
+@keyframes lxShine{0%{transform:translateX(-60%)}45%,100%{transform:translateX(60%)}}
+/* ikon fitur emas bergradasi seperti referensi */
+.lx-feat i svg{width:38px;height:38px;stroke:url(#lxgold);stroke-width:2.1;}
+.lx-feat{padding:20px 12px 18px;gap:4px;}
+.lx-feat b{font-size:16px;margin-top:8px;}
+.lx-feat:hover{border-color:rgba(127,193,255,.75);box-shadow:0 18px 40px -18px rgba(22,139,255,.8),0 0 0 1px rgba(127,193,255,.35) inset;}
+.lx-feat,.lx-perks li,.btn,.lx-links button{transition-timing-function:cubic-bezier(.2,.7,.2,1);}
+/* laptop lebih realistis (sudut pandang miring) */
+.lx-screen{transform:perspective(1300px) rotateY(16deg) rotateX(5deg) rotateZ(-1.5deg);border-color:#0E1626;border-width:8px 8px 10px;}
+.lx-base{height:18px;margin:-2px -6% 0 -2%;border-radius:2px 2px 16px 16px;transform:perspective(1300px) rotateY(16deg) rotateX(58deg) rotateZ(-1.5deg);
+  background:linear-gradient(180deg,#3A4458 0%,#1A2131 60%,#0D121D 100%);box-shadow:0 24px 30px -12px rgba(0,0,0,.75);}
+.lx-bars{display:grid;gap:4px;margin-top:6px;}
+.lx-bars span{display:grid;grid-template-columns:44px 1fr;align-items:center;gap:6px;}
+.lx-bars em{order:-1;font-style:normal;font-size:7.5px;color:#9FB2D2;}
+.lx-bars i{display:block;height:5px;border-radius:9px;background:rgba(255,255,255,.08);position:relative;overflow:hidden;}
+.lx-bars i::after{content:"";position:absolute;inset:0;width:0;border-radius:9px;background:linear-gradient(90deg,#168BFF,#F4D58A);}
+#loginScreen.lx-ready .lx-bars i::after{animation:lxBar 1.4s .9s cubic-bezier(.2,.7,.2,1) forwards;}
+@keyframes lxBar{to{width:var(--w)}}
+/* panel masuk: kaca kebiruan + tepi emas lebih hidup seperti referensi */
+#loginScreen.lx .login-card{background:linear-gradient(160deg,rgba(255,255,255,.96) 0%,rgba(236,244,255,.93) 55%,rgba(219,233,252,.9) 100%);
+  box-shadow:-14px 6px 40px -16px rgba(244,213,138,.85),14px 24px 46px -24px rgba(244,213,138,.6),0 40px 80px -30px rgba(0,0,0,.55),0 0 90px -24px rgba(22,139,255,.7);}
+#loginScreen.lx .login-card::before{padding:2.5px;background:linear-gradient(155deg,#FFE7A8 0%,rgba(244,213,138,.35) 18%,rgba(255,255,255,.0) 40%,rgba(255,255,255,0) 62%,rgba(244,213,138,.5) 82%,#F4C860 100%);}
+/* tombol: kilau cahaya saat disentuh */
+#loginScreen.lx .login-card .btn.primary{background:linear-gradient(110deg,transparent 30%,rgba(255,255,255,.22) 48%,transparent 66%) -150% 0/250% 100% no-repeat,
+  linear-gradient(135deg,#0B3B78 0%,#0A2C5C 45%,#1565D8 100%);transition:background-position .7s ease,transform .15s ease,box-shadow .25s ease,filter .25s;}
+#loginScreen.lx .login-card .btn.primary:hover{background-position:150% 0,0 0;}
+#loginScreen.lx .login-card .btn.primary:active{transform:translateY(1px) scale(.995);}
+/* tanda "— atau —" seperti referensi */
+.lx-or span::before{content:"— ";}.lx-or span::after{content:" —";}
+.lx-or::before,.lx-or::after{display:none;}
+.lx-or{justify-content:center;}
+@media (max-width:1280px){ .lx-bwrap{right:36%;} }
+@media (max-width:1024px){ .lx-bwrap,.lx-sky.s2,.lx-arcs{display:none;} }
+@media (max-width:600px){ .lx-bars{display:none;} }
+@media (prefers-reduced-motion: reduce){ .lx-bshine{display:none;} }
+@media (min-width:1025px){ .lx-h{font-size:clamp(32px,3vw,52px);} }
+@media (min-width:601px) and (max-width:1024px){
+  .lx-bmob{-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 30%,#000 80%,transparent 100%),linear-gradient(180deg,transparent 0,#000 14%,#000 70%,transparent 100%);
+    mask-image:linear-gradient(90deg,transparent 0,#000 30%,#000 80%,transparent 100%),linear-gradient(180deg,transparent 0,#000 14%,#000 70%,transparent 100%);}
+}
+/* logo emas tanpa kotak putih — sama dengan halaman masuk */
+.brand-tile{background:transparent;box-shadow:none;}
+.brand-tile img{width:40px;height:40px;filter:drop-shadow(0 3px 10px rgba(217,164,65,.45));}
+.lx-sb-brand img{background:transparent !important;}
+/* menu samping bisa digulir: tepi bawah memudar sebagai penanda */
+.side-nav{-webkit-mask-image:linear-gradient(180deg,#000 calc(100% - 28px),transparent);mask-image:linear-gradient(180deg,#000 calc(100% - 28px),transparent);padding-bottom:18px;}
+@media (max-height:820px) and (min-width:1024px){ .side-nav .navbtn{padding-top:7px;padding-bottom:7px;} }
+@media(max-width:600px){ .tag button{width:34px;height:34px;} }
+
 </style>
 <script>
 // Penangkap error darurat — dipasang PALING AWAL, sebelum kode lain, supaya
@@ -1006,85 +1527,190 @@ tr.db-more-row .btn{margin:0 4px;}
 <div class="toast-wrap" id="toastWrap"></div>
 
 <!-- ============================ LOGIN ============================ -->
-<div id="loginScreen" class="login-screen">
-  <section class="login-hero" aria-hidden="true">
-    <span class="lh-ring r1"></span><span class="lh-ring r2"></span><span class="lh-ring r3"></span><span class="lh-glow"></span>
-    <div class="lh-top">
-      <div class="lh-tile"><img src="assets/emblem.jpg" alt=""></div>
-      <div class="lh-word">DBank<small>BRANCH PERFORMANCE APP</small></div>
-    </div>
-    <div class="lh-mid">
-      <span class="lh-kicker">✦ PERFORMANCE SUITE</span>
-      <h2>Pantau performa cabang, <em>lebih cepat &amp; lebih tepat.</em></h2>
-      <p>Akuisisi produk, leaderboard, layanan, leads, hingga pipeline dana — semuanya dalam satu aplikasi yang ringkas untuk tim cabang.</p>
-    </div>
-    <div class="lh-stats">
-      <div class="lh-stat"><i data-ic="trophy"></i><b>Leaderboard</b><span>Real-time per tim</span></div>
-      <div class="lh-stat"><i data-ic="wallet"></i><b>Pipeline Dana</b><span>Tabungan · Giro · Depo</span></div>
-      <div class="lh-stat"><i data-ic="filedown"></i><b>Laporan PDF</b><span>Sekali klik</span></div>
-    </div>
-  </section>
+<div id="loginScreen" class="login-screen lx">
+  <!-- latar: gradasi navy, cahaya biru/emas, garis lengkung & gedung (SVG ringan, tanpa foto besar) -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs><linearGradient id="lxgold" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#FFE7A8"/><stop offset=".55" stop-color="#F4C860"/><stop offset="1" stop-color="#C98E22"/></linearGradient></defs></svg>
+  <div class="lx-bg" aria-hidden="true">
+    <span class="lx-glow g1"></span><span class="lx-glow g2"></span><span class="lx-glow g3"></span>
+    <svg class="lx-curves" viewBox="0 0 1440 900" preserveAspectRatio="none">
+      <defs>
+        <linearGradient id="lxc1" x1="0" x2="1"><stop offset="0" stop-color="#168BFF" stop-opacity="0"/><stop offset=".5" stop-color="#168BFF" stop-opacity=".55"/><stop offset="1" stop-color="#168BFF" stop-opacity="0"/></linearGradient>
+        <linearGradient id="lxc2" x1="0" x2="1"><stop offset="0" stop-color="#D9A441" stop-opacity="0"/><stop offset=".55" stop-color="#F4D58A" stop-opacity=".7"/><stop offset="1" stop-color="#D9A441" stop-opacity="0"/></linearGradient>
+      </defs>
+      <path d="M-40 760 C 320 620, 620 900, 980 700 S 1500 520, 1500 520" fill="none" stroke="url(#lxc1)" stroke-width="1.6"/>
+      <path d="M-40 820 C 360 700, 700 940, 1040 760 S 1500 610, 1500 610" fill="none" stroke="url(#lxc2)" stroke-width="1.4"/>
+      <path d="M-40 120 C 300 40, 520 220, 860 90 S 1300 -20, 1500 60" fill="none" stroke="url(#lxc1)" stroke-width="1" opacity=".6"/>
+    </svg>
+    <span class="lx-bwrap"><img class="lx-building" src="assets/gedung-desktop.webp" alt="" width="678" height="1626" decoding="async"><span class="lx-bshine"></span></span>
+    <span class="lx-sky s1"></span><span class="lx-sky s2"></span>
+    <svg class="lx-arcs" viewBox="0 0 1440 900" preserveAspectRatio="none">
+      <defs>
+        <linearGradient id="lxarcb" x1="0" x2="1"><stop offset="0" stop-color="#5FB0FF" stop-opacity="0"/><stop offset=".5" stop-color="#7FC1FF" stop-opacity=".95"/><stop offset="1" stop-color="#168BFF" stop-opacity=".2"/></linearGradient>
+      </defs>
+      <path d="M980 -10 C 1180 40, 1320 60, 1460 10" fill="none" stroke="url(#lxarcb)" stroke-width="10" opacity=".35"/>
+      <path d="M1000 -10 C 1190 30, 1330 46, 1460 0" fill="none" stroke="url(#lxarcb)" stroke-width="2.4"/>
+      <path d="M-20 360 C 120 320, 220 330, 330 380" fill="none" stroke="url(#lxarcb)" stroke-width="2" opacity=".55"/>
+    </svg>
+    <svg class="lx-swoosh" viewBox="0 0 1440 900" preserveAspectRatio="none">
+      <defs><linearGradient id="lxsw" x1="0" x2="1"><stop offset="0" stop-color="#F4D58A" stop-opacity="0"/><stop offset=".55" stop-color="#F4D58A" stop-opacity=".95"/><stop offset="1" stop-color="#D9A441" stop-opacity="0"/></linearGradient>
+      <linearGradient id="lxsb" x1="0" x2="1"><stop offset="0" stop-color="#168BFF" stop-opacity="0"/><stop offset=".6" stop-color="#5FB0FF" stop-opacity=".9"/><stop offset="1" stop-color="#168BFF" stop-opacity="0"/></linearGradient></defs>
+      <path d="M520 900 C 760 860, 900 760, 1060 700" fill="none" stroke="url(#lxsw)" stroke-width="3"/>
+      <path d="M560 900 C 790 870, 930 790, 1080 735" fill="none" stroke="url(#lxsb)" stroke-width="2"/>
+    </svg>
+  </div>
 
-  <section class="login-side">
+  <header class="lx-nav">
+    <a class="lx-brand" href="#" data-lx="beranda" aria-label="DBank — Branch Performance App">
+      <img class="lx-emblem-img" src="assets/emblem-gold.webp" alt="" width="198" height="217">
+      <span class="lx-word">DBANK<small>BRANCH PERFORMANCE APP</small></span>
+    </a>
+    <nav class="lx-links" id="lxLinks" aria-label="Navigasi halaman">
+      <button type="button" class="on" data-lx="beranda"><i data-ic="home"></i>Beranda</button>
+      <button type="button" data-lx="fitur">Fitur</button>
+      <button type="button" data-lx="solusi">Solusi</button>
+      <button type="button" data-lx="keunggulan">Keunggulan</button>
+      <button type="button" data-lx="bantuan">Bantuan</button>
+    </nav>
+    <button type="button" class="lx-burger" id="lxBurger" aria-label="Buka menu" aria-expanded="false" aria-controls="lxLinks"><i data-ic="burger"></i></button>
+  </header>
+
+  <main class="lx-main">
+    <img class="lx-bmob" src="assets/gedung-mobile.webp" alt="" width="492" height="560" decoding="async">
+    <section class="lx-hero" id="lxBeranda">
+      <span class="lx-kicker"><i data-ic="bars"></i>PERFORMANCE SUITE</span>
+      <h2 class="lx-h">Pantau Performa Cabang,<br><em>Lebih Cepat, Akurat &amp; Tepat.</em></h2>
+      <p class="lx-lead">Solusi terintegrasi untuk memantau akuisisi produk, layanan, leads, hingga pipeline dana di seluruh cabang secara real-time.</p>
+
+      <div class="lx-feats" id="lxFitur">
+        <div class="lx-feat"><i data-ic="bars"></i><b>Leaderboard</b><span>Real-time per tim</span></div>
+        <div class="lx-feat"><i data-ic="layers"></i><b>Pipeline Dana</b><span>Tabungan · Giro · Deposito</span></div>
+        <div class="lx-feat"><i data-ic="filetext"></i><b>Laporan PDF</b><span>Sekali klik, siap dibagikan</span></div>
+        <div class="lx-feat"><i data-ic="target"></i><b>Capaian Target</b><span>Monitoring &amp; evaluasi</span></div>
+      </div>
+
+      <div class="lx-show">
+        <figure class="lx-laptop" aria-label="Contoh tampilan dashboard DBank (data ilustrasi)">
+          <div class="lx-screen">
+            <aside class="lx-sb">
+              <div class="lx-sb-brand"><img src="assets/emblem-gold.webp" alt=""><b>DBANK</b></div>
+              <span class="on"><i data-ic="home"></i>Beranda</span>
+              <span><i data-ic="trophy"></i>Leaderboard</span>
+              <span><i data-ic="wallet"></i>Pipeline Dana</span>
+              <span><i data-ic="files"></i>Laporan</span>
+              <span><i data-ic="target"></i>Leads</span>
+            </aside>
+            <div class="lx-dash">
+              <div class="lx-dh"><div><b>Performa Cabang</b><small>Periode: bulan berjalan</small></div><span class="lx-demo">Contoh</span></div>
+              <div class="lx-kpis">
+                <div><small>Akuisisi Produk</small><b data-count="1248">1.248</b><em>+12,8%</em></div>
+                <div><small>Pipeline Dana</small><b data-count="24.6" data-pre="Rp " data-suf=" M" data-dec="1">Rp 24,6 M</b><em>+8,4%</em></div>
+                <div><small>Leads</small><b data-count="532">532</b><em>+18,7%</em></div>
+              </div>
+              <div class="lx-bars"><span><i style="--w:82%"></i><em>Tabungan</em></span><span><i style="--w:64%"></i><em>Giro</em></span><span><i style="--w:47%"></i><em>Deposito</em></span></div>
+              <div class="lx-charts">
+                <div class="lx-chart">
+                  <small>Tren Akuisisi Produk</small>
+                  <svg viewBox="0 0 220 84" preserveAspectRatio="none">
+                    <defs><linearGradient id="lxa" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#168BFF" stop-opacity=".45"/><stop offset="1" stop-color="#168BFF" stop-opacity="0"/></linearGradient></defs>
+                    <path class="lx-area" d="M0 70 L22 62 L44 66 L66 52 L88 56 L110 40 L132 46 L154 30 L176 34 L198 18 L220 12 L220 84 L0 84Z" fill="url(#lxa)"/>
+                    <path class="lx-line" d="M0 70 L22 62 L44 66 L66 52 L88 56 L110 40 L132 46 L154 30 L176 34 L198 18 L220 12" fill="none" stroke="#5FB0FF" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"/>
+                    <circle cx="198" cy="18" r="3.2" fill="#F4D58A"/>
+                  </svg>
+                </div>
+                <div class="lx-donut">
+                  <small>Capaian Target</small>
+                  <svg viewBox="0 0 64 64"><circle cx="32" cy="32" r="25" fill="none" stroke="rgba(255,255,255,.12)" stroke-width="7"/>
+                    <circle class="lx-arc" cx="32" cy="32" r="25" fill="none" stroke="url(#lxd)" stroke-width="7" stroke-linecap="round" stroke-dasharray="137 158" transform="rotate(-90 32 32)"/>
+                    <defs><linearGradient id="lxd" x1="0" x2="1"><stop offset="0" stop-color="#168BFF"/><stop offset="1" stop-color="#F4D58A"/></linearGradient></defs>
+                    <text x="32" y="36" text-anchor="middle" font-size="12" font-weight="800" fill="#fff" font-family="Plus Jakarta Sans, sans-serif" data-count="87" data-suf="%">87%</text></svg>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="lx-base"></div>
+          <figcaption>Ilustrasi tampilan — bukan data sebenarnya</figcaption>
+        </figure>
+        <ul class="lx-perks" id="lxKeunggulan">
+          <li><i data-ic="check"></i><div><b>Cepat</b><span>Akses data real-time</span></div></li>
+          <li><i data-ic="check"></i><div><b>Akurat</b><span>Data valid &amp; terintegrasi</span></div></li>
+          <li><i data-ic="check"></i><div><b>Aman</b><span>Data tiap cabang terpisah</span></div></li>
+          <li><i data-ic="check"></i><div><b>Ringkas</b><span>Mudah digunakan</span></div></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="login-side">
     <div class="login-card" id="loginCard">
      <div class="login-card-inner">
-      <img class="login-logo" src="assets/logo-full.jpg" alt="DBank — Branch Performance App">
+      <picture><source srcset="assets/logo-full.webp" type="image/webp"><img class="login-logo" src="assets/logo-full.jpg" alt="DBank — Branch Performance App" width="600" height="217"></picture>
       <div id="autoLoginOverlay" style="display:none;padding:36px 0;text-align:center">
         <div class="spinner-ring"></div>
         <p style="margin-top:16px;color:var(--ink-200);font-size:13.5px;font-weight:800">Menghubungkan ke server...</p>
         <p style="margin-top:4px;color:var(--ink-400);font-size:12px">Mohon tunggu sebentar</p>
       </div>
       <div id="loginFormWrap">
-        <h1 class="login-title" id="loginBrandTitle">Selamat datang 👋</h1>
+        <h1 class="login-title" id="loginBrandTitle">Selamat Datang 👋</h1>
         <p class="login-sub" id="loginBrandSub">Branch Performance App</p>
-        <form id="loginForm" autocomplete="off">
-          <div class="field" style="margin-top:22px;display:none" id="loginBranchField">
-            <label>Kode Ruang</label>
+        <p class="lx-ws" id="lxWs" hidden><i data-ic="building"></i><span id="lxWsText"></span><a href="#" id="lxWsEdit" class="login-link">Ganti</a></p>
+        <form id="loginForm" autocomplete="off" novalidate>
+          <div class="field" style="display:none" id="loginBranchField">
+            <label for="loginBranch"><i data-ic="building"></i>Kode Ruang</label>
             <div class="input-icon-wrap">
-              <span class="input-icon">🏦</span>
-              <input type="text" id="loginBranch" placeholder="Contoh: 11000-K7Q2" autocomplete="off" autocapitalize="characters" maxlength="20">
+              <span class="input-icon"><i data-ic="building"></i></span>
+              <input type="text" id="loginBranch" placeholder="Contoh: 11000-K7Q2" autocomplete="off" autocapitalize="characters" maxlength="20" aria-describedby="loginBranchName">
             </div>
-            <div class="branch-hint" id="loginBranchName"></div>
+            <div class="branch-hint" id="loginBranchName" aria-live="polite"></div>
           </div>
           <div class="field" id="loginNIPField">
-            <label>NIP</label>
+            <label for="loginNIP"><i data-ic="idcard"></i>NIP</label>
             <div class="input-icon-wrap">
-              <span class="input-icon">👤</span>
-              <input type="text" id="loginNIP" inputmode="numeric" placeholder="Masukkan NIP Anda" autocomplete="off">
+              <span class="input-icon"><i data-ic="user"></i></span>
+              <input type="text" id="loginNIP" inputmode="numeric" placeholder="Masukkan NIP Anda" autocomplete="username">
             </div>
           </div>
           <div id="loginStep2"></div>
-          <button type="submit" class="btn primary" id="loginSubmitBtn" style="width:100%;justify-content:center;margin-top:8px">🔐 Masuk ke Dashboard</button>
+          <div class="field" id="lxPwField">
+            <label for="lxPw"><i data-ic="lock"></i>Password</label>
+            <div class="input-icon-wrap">
+              <span class="input-icon"><i data-ic="lock"></i></span>
+              <input type="password" id="lxPw" placeholder="Masukkan password" autocomplete="current-password">
+            </div>
+          </div>
+          <div class="lx-row" id="lxRememberRow">
+            <label class="lx-remember"><input type="checkbox" id="lxRemember"><span>Ingat saya</span></label>
+            <a href="#" id="lxForgot" class="login-link">Lupa password?</a>
+          </div>
+          <button type="submit" class="btn primary" id="loginSubmitBtn">Masuk</button>
         </form>
         <p class="login-foot" id="loginFootHint">Tulis NIP Anda untuk masuk. Akses Admin otomatis aktif untuk NIP terdaftar.</p>
         <div class="login-alt" id="loginAlt" style="display:none">
-          <button type="button" class="alt-btn" id="toRegister"><span>🏦</span><b>Daftarkan cabang baru</b><small>Untuk Admin yang pertama kali memakai DBank</small></button>
+          <div class="lx-or"><span>atau</span></div>
+          <button type="button" class="alt-btn" id="toRegister"><span><i data-ic="building"></i></span><b>Daftarkan cabang baru</b><small>Untuk Admin yang pertama kali memakai DBank</small></button>
           <a href="#" id="toRecover" class="login-link">Admin tidak bisa masuk? Pakai Kode Pemulihan</a>
         </div>
-        <div class="login-secure"><span data-ic="shield"></span>Data tersimpan aman &amp; terenkripsi (SHA-256)</div>
       </div>
       <div id="dbRegWrap" style="display:none">
         <h1 class="login-title">Daftarkan Cabang Baru</h1>
         <p class="login-sub">Setiap pendaftaran mendapat ruang data sendiri yang terpisah total.</p>
         <form id="dbRegForm" autocomplete="off">
           <div class="reg-sec">Data cabang</div>
-          <div class="field"><label>Nama bank</label><input type="text" id="regBank" placeholder="Contoh: Bank Mandiri" maxlength="60"></div>
+          <div class="field"><label for="regBank">Nama bank</label><input type="text" id="regBank" placeholder="Contoh: Bank Mandiri" maxlength="60"></div>
           <div class="reg-2">
-            <div class="field"><label>Nama cabang</label><input type="text" id="regBranch" placeholder="Contoh: Jambi Gatot Subroto" maxlength="80"></div>
-            <div class="field"><label>Kode cabang</label><input type="text" id="regCode" placeholder="Contoh: 11000" maxlength="12" autocapitalize="characters"></div>
+            <div class="field"><label for="regBranch">Nama cabang</label><input type="text" id="regBranch" placeholder="Contoh: Jambi Gatot Subroto" maxlength="80"></div>
+            <div class="field"><label for="regCode">Kode cabang</label><input type="text" id="regCode" placeholder="Contoh: 11000" maxlength="12" autocapitalize="characters"></div>
           </div>
           <p class="reg-note">Kode cabang sudah dipakai bank lain / admin lain? Tidak masalah — Anda tetap mendapat <b>Kode Ruang</b> sendiri dan datanya tidak bisa saling melihat.</p>
           <div class="reg-sec">Admin pertama</div>
-          <div class="field"><label>Nama lengkap</label><input type="text" id="regName" maxlength="80"></div>
+          <div class="field"><label for="regName">Nama lengkap</label><input type="text" id="regName" maxlength="80" autocomplete="name"></div>
           <div class="reg-2 eq">
-            <div class="field"><label>NIP</label><input type="text" id="regNip" inputmode="numeric" maxlength="20"></div>
-            <div class="field"><label>Email</label><input type="email" id="regEmail"></div>
+            <div class="field"><label for="regNip">NIP</label><input type="text" id="regNip" inputmode="numeric" maxlength="20"></div>
+            <div class="field"><label for="regEmail">Email</label><input type="email" id="regEmail" autocomplete="email"></div>
           </div>
           <div class="reg-2 eq">
-            <div class="field"><label>Password (min. 6)</label><input type="password" id="regPw" minlength="6"></div>
-            <div class="field"><label>Ulangi password</label><input type="password" id="regPw2" minlength="6"></div>
+            <div class="field"><label for="regPw">Password (min. 6)</label><input type="password" id="regPw" minlength="6" autocomplete="new-password"></div>
+            <div class="field"><label for="regPw2">Ulangi password</label><input type="password" id="regPw2" minlength="6" autocomplete="new-password"></div>
           </div>
-          <button type="submit" class="btn primary" id="regBtn" style="width:100%;justify-content:center;margin-top:6px">🏦 Daftarkan & Masuk</button>
+          <button type="submit" class="btn primary" id="regBtn">Daftarkan &amp; Masuk</button>
         </form>
         <p class="login-change"><a href="#" class="dbBackLogin">← Kembali ke login</a></p>
       </div>
@@ -1092,24 +1718,26 @@ tr.db-more-row .btn{margin:0 4px;}
         <h1 class="login-title">Pemulihan Admin</h1>
         <p class="login-sub">Untuk Admin yang lupa password / Admin lama resign tanpa menunjuk pengganti.</p>
         <form id="dbRecForm" autocomplete="off">
-          <div class="field"><label>Kode Ruang</label><input type="text" id="recWs" placeholder="Contoh: 11000-K7Q2" autocapitalize="characters" maxlength="20"></div>
+          <div class="field"><label for="recWs">Kode Ruang</label><input type="text" id="recWs" placeholder="Contoh: 11000-K7Q2" autocapitalize="characters" maxlength="20"></div>
           <div class="reg-2 eq">
-            <div class="field"><label>NIP Anda</label><input type="text" id="recNip" inputmode="numeric" maxlength="20"></div>
-            <div class="field"><label>Nama lengkap</label><input type="text" id="recName" maxlength="80"></div>
+            <div class="field"><label for="recNip">NIP Anda</label><input type="text" id="recNip" inputmode="numeric" maxlength="20"></div>
+            <div class="field"><label for="recName">Nama lengkap</label><input type="text" id="recName" maxlength="80"></div>
           </div>
-          <div class="field"><label>Kode Pemulihan</label><input type="text" id="recCode" placeholder="XXXX-XXXX-XXXX" autocapitalize="characters" maxlength="14"></div>
+          <div class="field"><label for="recCode">Kode Pemulihan</label><input type="text" id="recCode" placeholder="XXXX-XXXX-XXXX" autocapitalize="characters" maxlength="14"></div>
           <div class="reg-2 eq">
-            <div class="field"><label>Password baru</label><input type="password" id="recPw" minlength="6"></div>
-            <div class="field"><label>Ulangi password</label><input type="password" id="recPw2" minlength="6"></div>
+            <div class="field"><label for="recPw">Password baru</label><input type="password" id="recPw" minlength="6" autocomplete="new-password"></div>
+            <div class="field"><label for="recPw2">Ulangi password</label><input type="password" id="recPw2" minlength="6" autocomplete="new-password"></div>
           </div>
-          <button type="submit" class="btn primary" id="recBtn" style="width:100%;justify-content:center;margin-top:6px">🔑 Pulihkan Akses Admin</button>
+          <button type="submit" class="btn primary" id="recBtn">Pulihkan Akses Admin</button>
         </form>
         <p class="login-change"><a href="#" class="dbBackLogin">← Kembali ke login</a></p>
       </div>
+      <div class="login-secure"><i data-ic="shield"></i>Data tersimpan aman &amp; terenkripsi</div>
+      <div class="login-credit">DBank · Branch Performance App <span aria-hidden="true">|</span> created : hamdani harfan</div>
      </div>
     </div>
-    <div class="login-credit">DBank · Branch Performance App · created : hamdani harfan</div>
-  </section>
+    </section>
+  </main>
 </div>
 
 <!-- ============================ APP ============================ -->
@@ -1117,7 +1745,7 @@ tr.db-more-row .btn{margin:0 4px;}
 
   <aside class="side">
     <div class="side-brand">
-      <div class="brand-tile"><img src="assets/emblem.jpg" alt=""></div>
+      <div class="brand-tile"><img src="assets/emblem-gold.webp" alt="" width="198" height="217"></div>
       <div class="brand-word">DBank<small>Branch Performance</small></div>
     </div>
     <div class="branch-card">
@@ -1140,7 +1768,7 @@ tr.db-more-row .btn{margin:0 4px;}
   <div class="main">
     <header class="appbar">
       <div class="ab-brand">
-        <div class="brand-tile"><img src="assets/emblem.jpg" alt=""></div>
+        <div class="brand-tile"><img src="assets/emblem-gold.webp" alt="" width="198" height="217"></div>
         <div class="brand-word" style="min-width:0">DBank<small id="headerBrandSub">Branch Performance</small></div>
       </div>
       <div class="ab-title">
@@ -1245,6 +1873,20 @@ const DB_ICONS = {
   files:'<path d="M15 2H8a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M4 7v13a2 2 0 0 0 2 2h10"/>',
   calendar:'<rect width="18" height="18" x="3" y="4" rx="2"/><path d="M16 2v4"/><path d="M8 2v4"/><path d="M3 10h18"/>',
   user:'<circle cx="12" cy="8" r="5"/><path d="M20 21a8 8 0 0 0-16 0"/>',
+  help:'<circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><path d="M12 17h.01"/>',
+  bars:'<path d="M3 3v18h18"/><rect x="7" y="12" width="3" height="6" rx="1"/><rect x="12" y="8" width="3" height="10" rx="1"/><rect x="17" y="5" width="3" height="13" rx="1"/>',
+  layers:'<path d="m12 2 10 5-10 5L2 7z"/><path d="m2 17 10 5 10-5"/><path d="m2 12 10 5 10-5"/>',
+  filetext:'<path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M8 13h8"/><path d="M8 17h5"/>',
+  check:'<path d="M20 6 9 17l-5-5"/>',
+  building:'<rect x="4" y="2" width="16" height="20" rx="2"/><path d="M9 22v-4h6v4"/><path d="M8 6h.01M12 6h.01M16 6h.01M8 10h.01M12 10h.01M16 10h.01M8 14h.01M12 14h.01M16 14h.01"/>',
+  idcard:'<rect x="2" y="5" width="20" height="14" rx="2"/><circle cx="8" cy="12" r="2"/><path d="M5 16a3 3 0 0 1 6 0"/><path d="M14 10h5M14 14h3"/>',
+  lock:'<rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/>',
+  mail:'<rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/>',
+  hash:'<path d="M4 9h16M4 15h16M10 3 8 21M16 3l-2 18"/>',
+  eye:'<path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/>',
+  eyeoff:'<path d="M9.9 4.24A9.12 9.12 0 0 1 12 4c6.5 0 10 8 10 8a18.5 18.5 0 0 1-2.16 3.19"/><path d="M6.61 6.61A13.5 13.5 0 0 0 2 12s3.5 8 10 8a9.74 9.74 0 0 0 5.39-1.61"/><path d="M14.12 14.12a3 3 0 1 1-4.24-4.24"/><path d="m2 2 20 20"/>',
+  x:'<path d="M18 6 6 18M6 6l12 12"/>',
+  burger:'<path d="M4 7h16M4 12h16M4 17h16"/>',
 };
 function DB_ICON(name){
   return `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${DB_ICONS[name]||""}</svg>`;
@@ -10810,7 +11452,7 @@ if(typeof DB_SB !== "undefined" && DB_SB){
         show("login"); $("dbRegForm").reset();
         dbShowWorkspaceKeys({code: r.code, recovery: r.recovery, sameBranchCode: r.sameBranchCode, branchCode: d.code, bank: d.bank, branch: d.branch});
       }catch(err){ toast("Pendaftaran gagal: periksa koneksi lalu coba lagi", "⚠️"); }
-      finally{ busy(btn, false, "🏦 Daftarkan & Masuk"); }
+      finally{ busy(btn, false, "Daftarkan & Masuk"); }
     };
     $("dbRecForm").onsubmit = async e=>{
       e.preventDefault();
@@ -10826,7 +11468,7 @@ if(typeof DB_SB !== "undefined" && DB_SB){
         show("login"); $("dbRecForm").reset();
         dbShowWorkspaceKeys({code: r.branch, recovery: r.recovery, title: "Akses Admin dipulihkan — Kode Pemulihan baru"});
       }catch(err){ toast("Pemulihan gagal: periksa koneksi lalu coba lagi", "⚠️"); }
-      finally{ busy(btn, false, "🔑 Pulihkan Akses Admin"); }
+      finally{ busy(btn, false, "Pulihkan Akses Admin"); }
     };
   })();
 }
@@ -11156,6 +11798,211 @@ function dbPrefillMyName(){
   render = function(){ const r = _render.apply(this, arguments); try{ dbPrefillMyName(); }catch(e){} return r; };
   // formulir yang dikosongkan setelah kirim: isi lagi namanya
   document.addEventListener("reset", ()=> setTimeout(()=>{ document.querySelectorAll("[data-db-prefilled]").forEach(s=> delete s.dataset.dbPrefilled); dbPrefillMyName(); }, 0), true);
+})();
+
+/* =====================================================================
+   DBANK — HALAMAN MASUK (tampilan premium)
+   Hanya tampilan & interaksi. Alur masuk, sesi, lupa password, aktivasi,
+   pendaftaran & pemulihan tetap memakai fungsi yang sama seperti sebelumnya.
+   ===================================================================== */
+(function(){
+  const $ = id => document.getElementById(id);
+  const screen = $("loginScreen");
+  if(!screen) return;
+
+  /* ---- ikon mata (lihat/sembunyikan password) berbentuk ikon, bukan emoji ---- */
+  addPasswordToggles = function(container){
+    if(!container) return;
+    container.querySelectorAll("input[type=password]").forEach(inp=>{
+      if(inp.dataset.eyeWired) return;
+      inp.dataset.eyeWired = "1";
+      let wrap = inp.parentNode;
+      if(!wrap.classList.contains("input-icon-wrap")){
+        wrap = document.createElement("div");
+        wrap.className = "pw-wrap";
+        inp.parentNode.insertBefore(wrap, inp);
+        wrap.appendChild(inp);
+      }
+      wrap.classList.add("has-eye");
+      const btn = document.createElement("button");
+      btn.type = "button"; btn.className = "pw-eye";
+      btn.setAttribute("aria-label", "Tampilkan password"); btn.setAttribute("aria-pressed", "false");
+      btn.innerHTML = DB_ICON("eye");
+      btn.onclick = ()=>{
+        const show = inp.type === "password";
+        inp.type = show ? "text" : "password";
+        btn.innerHTML = DB_ICON(show ? "eyeoff" : "eye");
+        btn.setAttribute("aria-label", show ? "Sembunyikan password" : "Tampilkan password");
+        btn.setAttribute("aria-pressed", String(show));
+        inp.focus();
+      };
+      wrap.appendChild(btn);
+    });
+  };
+  ["dbRegForm", "dbRecForm", "lxPwField"].forEach(id=> addPasswordToggles($(id)));
+
+  /* ---- bersihkan emoji pada tombol & ikon isian, ganti dengan ikon ---- */
+  const EMOJI_IC = {"🔑":"lock", "✉️":"mail", "🔢":"hash", "🪪":"idcard", "👤":"user", "🏦":"building"};
+  const stripEmoji = t => String(t || "").replace(/^[^\p{L}\p{N}]+/u, "").trim();
+  function tidyLogin(){
+    const btn = $("loginSubmitBtn");
+    if(btn && /^[^\p{L}\p{N}]/u.test(btn.textContent)) btn.textContent = stripEmoji(btn.textContent) || "Masuk";
+    screen.querySelectorAll("#loginStep2 .input-icon").forEach(sp=>{
+      const k = sp.textContent.trim();
+      if(EMOJI_IC[k]) sp.innerHTML = DB_ICON(EMOJI_IC[k]);
+    });
+    screen.querySelectorAll("#loginStep2 .field > label").forEach(l=>{
+      if(l.querySelector("svg")) return;
+      const inp = l.parentNode.querySelector("input");
+      const ic = inp ? ({password:"lock", email:"mail"}[inp.type] || (inp.id === "actCode" || inp.id === "resetCodeInput" ? "hash" : inp.id === "reqName" ? "idcard" : "")) : "";
+      if(ic) l.insertAdjacentHTML("afterbegin", DB_ICON(ic));
+      if(inp && inp.id) l.setAttribute("for", inp.id);
+    });
+    const form = $("loginForm");
+    if(form) form.dataset.stage = (typeof loginStage !== "undefined" && loginStage) || "nip";
+  }
+  const _show = dbShowStage;
+  dbShowStage = function(){ const r = _show.apply(this, arguments); tidyLogin(); return r; };
+  const _reset = resetLoginStage;
+  resetLoginStage = function(){
+    const r = _reset.apply(this, arguments);
+    const btn = $("loginSubmitBtn"); if(btn) btn.textContent = "Masuk";
+    tidyLogin(); return r;
+  };
+  // teks tombol daftar/pulihkan yang diubah saat memproses
+  new MutationObserver(()=>{ ["regBtn", "recBtn"].forEach(id=>{ const b = $(id); if(b && /^[^\p{L}\p{N}]/u.test(b.textContent)) b.textContent = stripEmoji(b.textContent); }); })
+    .observe(screen, {subtree:true, childList:true, characterData:true});
+  tidyLogin();
+
+  /* ---- NIP + password sekaligus ----
+     Alur server tetap sama: NIP diperiksa dulu (baru / menunggu / aktif), lalu password.
+     Bila password sudah diketik, langkah kedua berjalan otomatis tanpa klik lagi. */
+  const form = $("loginForm"), pwEl = $("lxPw"), nipEl = $("loginNIP");
+  let wantForgot = false;
+  const stageNow = ()=> (typeof loginStage !== "undefined" && loginStage) || "nip";
+  const _show2 = dbShowStage;
+  dbShowStage = function(stage){
+    if(stage === "password" && wantForgot){ wantForgot = false; return dbShowStage("forgot-request"); }
+    const r = _show2.apply(this, arguments);
+    if(stage === "password"){
+      const fp = $("forgotPasswordLink"); if(fp) fp.style.display = "none";
+      const lp = $("loginPassword");
+      if(lp && pwEl.value){
+        lp.value = pwEl.value;
+        setTimeout(()=>{ if(stageNow() === "password" && !loginBusy) form.requestSubmit(); }, 0);
+      } else setTimeout(()=>{ const x = $("loginPassword"); if(x) x.focus(); }, 40);
+    }
+    if(stage !== "password") pwEl.value = "";
+    return r;
+  };
+  const _reset2 = resetLoginStage;
+  resetLoginStage = function(){ const r = _reset2.apply(this, arguments); pwEl.value = ""; wantForgot = false; tidyLogin(); return r; };
+  $("lxForgot").addEventListener("click", e=>{
+    e.preventDefault();
+    if(stageNow() === "password"){ dbShowStage("forgot-request"); return; }
+    if(stageNow() !== "nip") return;
+    if(!nipEl.value.trim()){ toast("Tulis NIP Anda dulu, lalu tekan Lupa password", "ℹ️"); nipEl.focus(); return; }
+    wantForgot = true; pwEl.value = ""; form.requestSubmit();
+  });
+
+  /* ---- Ingat saya: hanya mengingat NIP (password tidak pernah disimpan) ---- */
+  const REM = "dbank_remember_nip";
+  const rem = $("lxRemember");
+  try{
+    const saved = localStorage.getItem(REM);
+    if(saved){ rem.checked = true; if(nipEl && !nipEl.value) nipEl.value = saved; }
+  }catch(e){}
+  document.addEventListener("submit", e=>{
+    if(e.target === form && stageNow() === "nip"){
+      try{
+        const nip = typeof sanitizeNIP === "function" ? sanitizeNIP(nipEl.value) : nipEl.value.trim();
+        if(rem.checked && nip) localStorage.setItem(REM, nip); else localStorage.removeItem(REM);
+      }catch(err){}
+    }
+  }, true);
+  rem.addEventListener("change", ()=>{ if(!rem.checked) try{ localStorage.removeItem(REM); }catch(e){} });
+
+  /* ---- Kode Ruang: bila sudah dikenali, cukup tampil satu baris ringkas ---- */
+  const wsField = $("loginBranchField"), wsIn = $("loginBranch"), wsHint = $("loginBranchName"), wsLine = $("lxWs");
+  function syncWs(){
+    if(!wsField || !wsIn) return;
+    const ok = wsHint && wsHint.classList.contains("ok") && wsIn.value && document.activeElement !== wsIn && !screen.classList.contains("ws-edit");
+    screen.classList.toggle("ws-ok", !!ok && wsField.style.display !== "none");
+    if(wsLine){ wsLine.hidden = !screen.classList.contains("ws-ok"); $("lxWsText").textContent = `Kode Ruang ${wsIn.value}`; }
+  }
+  if(wsHint) new MutationObserver(syncWs).observe(wsHint, {attributes:true, childList:true, characterData:true, subtree:true});
+  if(wsField) new MutationObserver(syncWs).observe(wsField, {attributes:true, attributeFilter:["style"]});
+  if(wsIn) wsIn.addEventListener("blur", ()=>{ screen.classList.remove("ws-edit"); setTimeout(syncWs, 50); });
+  $("lxWsEdit").addEventListener("click", e=>{ e.preventDefault(); screen.classList.add("ws-edit"); syncWs(); wsIn.disabled = false; wsIn.focus(); wsIn.select(); });
+  syncWs();
+
+  /* ---- menu HP (hamburger) ---- */
+  const burger = $("lxBurger"), links = $("lxLinks");
+  function setMenu(open){ screen.classList.toggle("menu-open", open); burger.setAttribute("aria-expanded", String(open)); burger.innerHTML = DB_ICON(open ? "x" : "burger"); }
+  burger.addEventListener("click", e=>{ e.stopPropagation(); setMenu(!screen.classList.contains("menu-open")); });
+  links.addEventListener("click", e=>{ if(e.target.closest("button")) setMenu(false); });
+  document.addEventListener("click", e=>{ if(screen.classList.contains("menu-open") && !e.target.closest(".lx-nav")) setMenu(false); });
+
+  /* ---- navigasi atas & jendela info ---- */
+  const INFO = {
+    solusi: {title: "Solusi untuk seluruh tim cabang", body: `
+      <div class="lx-sol">
+        <div><i>${DB_ICON("shield")}</i><b>Admin / Pimpinan Cabang</b><span>Menyetujui laporan, mengatur karyawan, produk & target, memantau capaian tim, dan mengunduh laporan PDF.</span></div>
+        <div><i>${DB_ICON("user")}</i><b>Karyawan</b><span>Melaporkan akuisisi, layanan, leads & pipeline dana dari HP, lalu melihat posisi di leaderboard secara langsung.</span></div>
+        <div><i>${DB_ICON("building")}</i><b>Banyak bank & cabang</b><span>Setiap cabang punya Kode Ruang sendiri. Data antar cabang terpisah total, walau kode cabangnya sama.</span></div>
+      </div>`},
+    bantuan: {title: "Bantuan", body: `
+      <details open><summary>Pertama kali masuk</summary><p>Isi <b>Kode Ruang</b> (dari Admin cabang, atau buka tautan undangan) dan <b>NIP</b>, lalu tekan Lanjut. Jika NIP belum terdaftar, ajukan akses — Admin akan menyetujuinya.</p></details>
+      <details><summary>Lupa password</summary><p>Setelah menulis NIP, tekan <b>Lupa password?</b>. Admin cabang memberi kode 6 angka untuk membuat password baru.</p></details>
+      <details><summary>Saya Admin dan belum punya ruang</summary><p>Tekan <b>Daftarkan cabang baru</b>. Simpan Kode Ruang & Kode Pemulihan yang muncul setelah mendaftar.</p></details>
+      <details><summary>Admin tidak bisa masuk / Admin lama resign</summary><p>Pakai <b>Kode Pemulihan</b> lewat tautan di bawah tombol daftar.</p></details>
+      <details><summary>Pasang di HP seperti aplikasi</summary><p>Android (Chrome): menu ⋮ → <b>Tambahkan ke layar utama</b>. iPhone (Safari): tombol Bagikan → <b>Tambah ke Layar Utama</b>.</p></details>`}
+  };
+  function openInfo(key){
+    const d = INFO[key]; if(!d) return;
+    closeInfo();
+    const el = document.createElement("div");
+    el.className = "lx-modal"; el.id = "lxModal";
+    el.innerHTML = `<div class="lx-modal-box" role="dialog" aria-modal="true" aria-labelledby="lxModalTitle">
+      <button type="button" class="lx-x" aria-label="Tutup">${DB_ICON("x")}</button>
+      <h3 id="lxModalTitle">${d.title}</h3>${d.body}</div>`;
+    el.addEventListener("click", ev=>{ if(ev.target === el || ev.target.closest(".lx-x")) closeInfo(); });
+    screen.appendChild(el);
+    requestAnimationFrame(()=> el.classList.add("on"));
+    el.querySelector(".lx-x").focus();
+  }
+  function closeInfo(){ const m = $("lxModal"); if(m) m.remove(); }
+  document.addEventListener("keydown", e=>{ if(e.key === "Escape") closeInfo(); });
+  function flash(el){
+    if(!el) return;
+    el.scrollIntoView({behavior: "smooth", block: "center"});
+    el.classList.remove("lx-flash"); void el.offsetWidth; el.classList.add("lx-flash");
+  }
+  screen.querySelectorAll("[data-lx]").forEach(b=> b.addEventListener("click", e=>{
+    e.preventDefault();
+    const k = b.dataset.lx;
+    screen.querySelectorAll(".lx-links [data-lx]").forEach(x=> x.classList.toggle("on", x.dataset.lx === k));
+    if(k === "beranda"){ screen.scrollTo({top: 0, behavior: "smooth"}); flash(screen.querySelector(".lx-h")); }
+    else if(k === "fitur") flash($("lxFitur"));
+    else if(k === "keunggulan") flash($("lxKeunggulan"));
+    else openInfo(k);
+  }));
+
+  /* ---- animasi masuk ---- */
+  requestAnimationFrame(()=> screen.classList.add("lx-ready"));
+
+  /* ---- angka contoh dashboard naik perlahan ---- */
+  const reduce = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if(!reduce) setTimeout(()=>{
+    screen.querySelectorAll("[data-count]").forEach(el=>{
+      const to = parseFloat(el.dataset.count), dec = +(el.dataset.dec || 0), pre = el.dataset.pre || "", suf = el.dataset.suf || "";
+      const fmt = v => pre + v.toLocaleString("id-ID", {minimumFractionDigits: dec, maximumFractionDigits: dec}) + suf;
+      const t0 = performance.now(), dur = 1400;
+      const step = now=>{ const k = Math.min(1, (now - t0) / dur), e = 1 - Math.pow(1 - k, 3);
+        el.textContent = fmt(dec ? to * e : Math.round(to * e)); if(k < 1) requestAnimationFrame(step); };
+      requestAnimationFrame(step);
+    });
+  }, 700);
 })();
 
 /* ============================================================

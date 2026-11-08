@@ -3,13 +3,17 @@
    - Halaman (index.html) selalu diambil dari jaringan dulu supaya update langsung terasa;
      cadangan offline dipakai hanya kalau jaringan putus.
    - Data (Google Apps Script) TIDAK PERNAH di-cache oleh service worker ini. */
-const CACHE = "dbank-shell-v6";
+const CACHE = "dbank-shell-v10";
 const SHELL = [
   "./",
   "./index.html",
   "./manifest.webmanifest",
   "./config.js",
   "./assets/logo-full.jpg",
+  "./assets/logo-full.webp",
+  "./assets/emblem-gold.webp",
+  "./assets/gedung-desktop.webp",
+  "./assets/gedung-mobile.webp",
   "./assets/emblem.jpg",
   "./icons/icon-192.png",
   "./icons/icon-512.png",
