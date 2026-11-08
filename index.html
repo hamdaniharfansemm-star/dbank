@@ -10102,7 +10102,7 @@ async function sbRpc(fn, args, timeoutMs){
   try{
     const res = await __dbRawFetch(`${DB_SB_URL}/rest/v1/rpc/${fn}`, {
       method: "POST", signal: controller.signal,
-      headers: {"apikey": DB_SB_KEY, "Authorization": `Bearer ${DB_SB_KEY}`, "Content-Type": "application/json"},
+      headers: Object.assign({"apikey": DB_SB_KEY, "Content-Type": "application/json"}, /^eyJ/.test(DB_SB_KEY) ? {"Authorization": `Bearer ${DB_SB_KEY}`} : {}), // kunci baru (sb_publishable_…) cukup lewat apikey
       body: JSON.stringify(args || {}),
     });
     const text = await res.text();
