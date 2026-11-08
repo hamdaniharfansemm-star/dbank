@@ -9,7 +9,7 @@
    Semua kosong = mode sementara memakai server lama.
    ===================================================================== */
 window.DBANK_CONFIG = {
-  supabaseUrl: "",   // contoh: "https://abcdefgh.supabase.co"
-  supabaseKey: "",   // anon public key (aman ditaruh di sini; data dijaga oleh fungsi server)
+  supabaseUrl: "https://kyrgflbwxxneczsxkovz.supabase.co",   // contoh: "https://abcdefgh.supabase.co"
+  supabaseKey: "sb_publishable_oJGMbgUXYQqYqh6UeeAwkw_Xz3mlxsp",   // anon public key (aman ditaruh di sini; data dijaga oleh fungsi server)
   apiUrl: ""
 };
