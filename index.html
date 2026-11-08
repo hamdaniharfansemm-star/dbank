@@ -1353,77 +1353,6 @@ tr.db-more-row .btn{margin:0 4px;}
   #loginScreen.lx .login-side{max-width:520px;width:100%;justify-self:center;}
 }
 
-/* =====================================================================
-   v4.5 — penyempurnaan visual (QC terhadap referensi)
-   ===================================================================== */
-/* langit lebih terang ala blue hour */
-#loginScreen.lx .lx-bg{background:
-    radial-gradient(900px 520px at 60% 8%, rgba(22,139,255,.42), transparent 70%),
-    radial-gradient(1100px 700px at 15% 25%, rgba(11,59,120,.95), transparent 72%),
-    radial-gradient(700px 420px at 92% 100%, rgba(22,139,255,.28), transparent 70%),
-    linear-gradient(140deg,#071E44 0%,#0B3B78 46%,#082A5A 70%,#061A3A 100%);}
-.lx-sky{position:absolute;border-radius:50%;pointer-events:none;filter:blur(30px);}
-.lx-sky.s1{width:560px;height:300px;right:-120px;top:-150px;background:radial-gradient(closest-side,rgba(127,193,255,.75),transparent);animation:lxFloat 18s ease-in-out infinite;}
-.lx-sky.s2{width:420px;height:420px;left:46%;top:24%;background:radial-gradient(closest-side,rgba(244,213,138,.22),transparent);animation:lxFloat 24s ease-in-out infinite reverse;}
-.lx-arcs{position:absolute;inset:0;width:100%;height:100%;filter:drop-shadow(0 0 8px rgba(95,176,255,.8));}
-/* gedung: skala asli seperti referensi, lebih terang, tepi lembut */
-.lx-bwrap{position:absolute;top:0;right:35.4%;width:clamp(230px,14.6vw,430px);aspect-ratio:678/1626;max-height:100%;overflow:hidden;
-  -webkit-mask-image:linear-gradient(90deg,transparent 0,#000 16%,#000 100%),linear-gradient(180deg,#000 66%,transparent 96%);-webkit-mask-composite:source-in;
-  mask-image:linear-gradient(90deg,transparent 0,#000 16%,#000 100%),linear-gradient(180deg,#000 66%,transparent 96%);mask-composite:intersect;}
-.lx-bwrap .lx-building{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 0;right:auto;top:auto;bottom:auto;
-  -webkit-mask-image:none;mask-image:none;opacity:1;filter:saturate(1.05);animation:lxDrift 26s ease-in-out infinite alternate;}
-@keyframes lxDrift{from{transform:scale(1.0) translateY(0)}to{transform:scale(1.04) translateY(-8px)}}
-.lx-bshine{position:absolute;inset:-20% -60%;background:linear-gradient(105deg,transparent 42%,rgba(255,255,255,.16) 49%,rgba(244,213,138,.12) 52%,transparent 58%);
-  mix-blend-mode:screen;transform:translateX(-60%);animation:lxShine 9s ease-in-out 1.5s infinite;}
-@keyframes lxShine{0%{transform:translateX(-60%)}45%,100%{transform:translateX(60%)}}
-/* ikon fitur emas bergradasi seperti referensi */
-.lx-feat i svg{width:38px;height:38px;stroke:url(#lxgold);stroke-width:2.1;}
-.lx-feat{padding:20px 12px 18px;gap:4px;}
-.lx-feat b{font-size:16px;margin-top:8px;}
-.lx-feat:hover{border-color:rgba(127,193,255,.75);box-shadow:0 18px 40px -18px rgba(22,139,255,.8),0 0 0 1px rgba(127,193,255,.35) inset;}
-.lx-feat,.lx-perks li,.btn,.lx-links button{transition-timing-function:cubic-bezier(.2,.7,.2,1);}
-/* laptop lebih realistis (sudut pandang miring) */
-.lx-screen{transform:perspective(1300px) rotateY(16deg) rotateX(5deg) rotateZ(-1.5deg);border-color:#0E1626;border-width:8px 8px 10px;}
-.lx-base{height:18px;margin:-2px -6% 0 -2%;border-radius:2px 2px 16px 16px;transform:perspective(1300px) rotateY(16deg) rotateX(58deg) rotateZ(-1.5deg);
-  background:linear-gradient(180deg,#3A4458 0%,#1A2131 60%,#0D121D 100%);box-shadow:0 24px 30px -12px rgba(0,0,0,.75);}
-.lx-bars{display:grid;gap:4px;margin-top:6px;}
-.lx-bars span{display:grid;grid-template-columns:44px 1fr;align-items:center;gap:6px;}
-.lx-bars em{order:-1;font-style:normal;font-size:7.5px;color:#9FB2D2;}
-.lx-bars i{display:block;height:5px;border-radius:9px;background:rgba(255,255,255,.08);position:relative;overflow:hidden;}
-.lx-bars i::after{content:"";position:absolute;inset:0;width:0;border-radius:9px;background:linear-gradient(90deg,#168BFF,#F4D58A);}
-#loginScreen.lx-ready .lx-bars i::after{animation:lxBar 1.4s .9s cubic-bezier(.2,.7,.2,1) forwards;}
-@keyframes lxBar{to{width:var(--w)}}
-/* panel masuk: kaca kebiruan + tepi emas lebih hidup seperti referensi */
-#loginScreen.lx .login-card{background:linear-gradient(160deg,rgba(255,255,255,.96) 0%,rgba(236,244,255,.93) 55%,rgba(219,233,252,.9) 100%);
-  box-shadow:-14px 6px 40px -16px rgba(244,213,138,.85),14px 24px 46px -24px rgba(244,213,138,.6),0 40px 80px -30px rgba(0,0,0,.55),0 0 90px -24px rgba(22,139,255,.7);}
-#loginScreen.lx .login-card::before{padding:2.5px;background:linear-gradient(155deg,#FFE7A8 0%,rgba(244,213,138,.35) 18%,rgba(255,255,255,.0) 40%,rgba(255,255,255,0) 62%,rgba(244,213,138,.5) 82%,#F4C860 100%);}
-/* tombol: kilau cahaya saat disentuh */
-#loginScreen.lx .login-card .btn.primary{background:linear-gradient(110deg,transparent 30%,rgba(255,255,255,.22) 48%,transparent 66%) -150% 0/250% 100% no-repeat,
-  linear-gradient(135deg,#0B3B78 0%,#0A2C5C 45%,#1565D8 100%);transition:background-position .7s ease,transform .15s ease,box-shadow .25s ease,filter .25s;}
-#loginScreen.lx .login-card .btn.primary:hover{background-position:150% 0,0 0;}
-#loginScreen.lx .login-card .btn.primary:active{transform:translateY(1px) scale(.995);}
-/* tanda "— atau —" seperti referensi */
-.lx-or span::before{content:"— ";}.lx-or span::after{content:" —";}
-.lx-or::before,.lx-or::after{display:none;}
-.lx-or{justify-content:center;}
-@media (max-width:1280px){ .lx-bwrap{right:36%;} }
-@media (max-width:1024px){ .lx-bwrap,.lx-sky.s2,.lx-arcs{display:none;} }
-@media (max-width:600px){ .lx-bars{display:none;} }
-@media (prefers-reduced-motion: reduce){ .lx-bshine{display:none;} }
-@media (min-width:1025px){ .lx-h{font-size:clamp(32px,3vw,52px);} }
-@media (min-width:601px) and (max-width:1024px){
-  .lx-bmob{-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 30%,#000 80%,transparent 100%),linear-gradient(180deg,transparent 0,#000 14%,#000 70%,transparent 100%);
-    mask-image:linear-gradient(90deg,transparent 0,#000 30%,#000 80%,transparent 100%),linear-gradient(180deg,transparent 0,#000 14%,#000 70%,transparent 100%);}
-}
-/* logo emas tanpa kotak putih — sama dengan halaman masuk */
-.brand-tile{background:transparent;box-shadow:none;}
-.brand-tile img{width:40px;height:40px;filter:drop-shadow(0 3px 10px rgba(217,164,65,.45));}
-.lx-sb-brand img{background:transparent !important;}
-/* menu samping bisa digulir: tepi bawah memudar sebagai penanda */
-.side-nav{-webkit-mask-image:linear-gradient(180deg,#000 calc(100% - 28px),transparent);mask-image:linear-gradient(180deg,#000 calc(100% - 28px),transparent);padding-bottom:18px;}
-@media (max-height:820px) and (min-width:1024px){ .side-nav .navbtn{padding-top:7px;padding-bottom:7px;} }
-@media(max-width:600px){ .tag button{width:34px;height:34px;} }
-
 </style>
 <script>
 // Penangkap error darurat — dipasang PALING AWAL, sebelum kode lain, supaya
@@ -1529,7 +1458,6 @@ tr.db-more-row .btn{margin:0 4px;}
 <!-- ============================ LOGIN ============================ -->
 <div id="loginScreen" class="login-screen lx">
   <!-- latar: gradasi navy, cahaya biru/emas, garis lengkung & gedung (SVG ringan, tanpa foto besar) -->
-  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs><linearGradient id="lxgold" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#FFE7A8"/><stop offset=".55" stop-color="#F4C860"/><stop offset="1" stop-color="#C98E22"/></linearGradient></defs></svg>
   <div class="lx-bg" aria-hidden="true">
     <span class="lx-glow g1"></span><span class="lx-glow g2"></span><span class="lx-glow g3"></span>
     <svg class="lx-curves" viewBox="0 0 1440 900" preserveAspectRatio="none">
@@ -1541,16 +1469,7 @@ tr.db-more-row .btn{margin:0 4px;}
       <path d="M-40 820 C 360 700, 700 940, 1040 760 S 1500 610, 1500 610" fill="none" stroke="url(#lxc2)" stroke-width="1.4"/>
       <path d="M-40 120 C 300 40, 520 220, 860 90 S 1300 -20, 1500 60" fill="none" stroke="url(#lxc1)" stroke-width="1" opacity=".6"/>
     </svg>
-    <span class="lx-bwrap"><img class="lx-building" src="assets/gedung-desktop.webp" alt="" width="678" height="1626" decoding="async"><span class="lx-bshine"></span></span>
-    <span class="lx-sky s1"></span><span class="lx-sky s2"></span>
-    <svg class="lx-arcs" viewBox="0 0 1440 900" preserveAspectRatio="none">
-      <defs>
-        <linearGradient id="lxarcb" x1="0" x2="1"><stop offset="0" stop-color="#5FB0FF" stop-opacity="0"/><stop offset=".5" stop-color="#7FC1FF" stop-opacity=".95"/><stop offset="1" stop-color="#168BFF" stop-opacity=".2"/></linearGradient>
-      </defs>
-      <path d="M980 -10 C 1180 40, 1320 60, 1460 10" fill="none" stroke="url(#lxarcb)" stroke-width="10" opacity=".35"/>
-      <path d="M1000 -10 C 1190 30, 1330 46, 1460 0" fill="none" stroke="url(#lxarcb)" stroke-width="2.4"/>
-      <path d="M-20 360 C 120 320, 220 330, 330 380" fill="none" stroke="url(#lxarcb)" stroke-width="2" opacity=".55"/>
-    </svg>
+    <img class="lx-building" src="assets/gedung-desktop.webp" alt="" width="416" height="1004" decoding="async">
     <svg class="lx-swoosh" viewBox="0 0 1440 900" preserveAspectRatio="none">
       <defs><linearGradient id="lxsw" x1="0" x2="1"><stop offset="0" stop-color="#F4D58A" stop-opacity="0"/><stop offset=".55" stop-color="#F4D58A" stop-opacity=".95"/><stop offset="1" stop-color="#D9A441" stop-opacity="0"/></linearGradient>
       <linearGradient id="lxsb" x1="0" x2="1"><stop offset="0" stop-color="#168BFF" stop-opacity="0"/><stop offset=".6" stop-color="#5FB0FF" stop-opacity=".9"/><stop offset="1" stop-color="#168BFF" stop-opacity="0"/></linearGradient></defs>
@@ -1592,7 +1511,7 @@ tr.db-more-row .btn{margin:0 4px;}
         <figure class="lx-laptop" aria-label="Contoh tampilan dashboard DBank (data ilustrasi)">
           <div class="lx-screen">
             <aside class="lx-sb">
-              <div class="lx-sb-brand"><img src="assets/emblem-gold.webp" alt=""><b>DBANK</b></div>
+              <div class="lx-sb-brand"><img src="assets/emblem.jpg" alt=""><b>DBANK</b></div>
               <span class="on"><i data-ic="home"></i>Beranda</span>
               <span><i data-ic="trophy"></i>Leaderboard</span>
               <span><i data-ic="wallet"></i>Pipeline Dana</span>
@@ -1602,11 +1521,10 @@ tr.db-more-row .btn{margin:0 4px;}
             <div class="lx-dash">
               <div class="lx-dh"><div><b>Performa Cabang</b><small>Periode: bulan berjalan</small></div><span class="lx-demo">Contoh</span></div>
               <div class="lx-kpis">
-                <div><small>Akuisisi Produk</small><b data-count="1248">1.248</b><em>+12,8%</em></div>
-                <div><small>Pipeline Dana</small><b data-count="24.6" data-pre="Rp " data-suf=" M" data-dec="1">Rp 24,6 M</b><em>+8,4%</em></div>
-                <div><small>Leads</small><b data-count="532">532</b><em>+18,7%</em></div>
+                <div><small>Akuisisi Produk</small><b>1.248</b><em>+12,8%</em></div>
+                <div><small>Pipeline Dana</small><b>Rp 24,6 M</b><em>+8,4%</em></div>
+                <div><small>Leads</small><b>532</b><em>+18,7%</em></div>
               </div>
-              <div class="lx-bars"><span><i style="--w:82%"></i><em>Tabungan</em></span><span><i style="--w:64%"></i><em>Giro</em></span><span><i style="--w:47%"></i><em>Deposito</em></span></div>
               <div class="lx-charts">
                 <div class="lx-chart">
                   <small>Tren Akuisisi Produk</small>
@@ -1622,7 +1540,7 @@ tr.db-more-row .btn{margin:0 4px;}
                   <svg viewBox="0 0 64 64"><circle cx="32" cy="32" r="25" fill="none" stroke="rgba(255,255,255,.12)" stroke-width="7"/>
                     <circle class="lx-arc" cx="32" cy="32" r="25" fill="none" stroke="url(#lxd)" stroke-width="7" stroke-linecap="round" stroke-dasharray="137 158" transform="rotate(-90 32 32)"/>
                     <defs><linearGradient id="lxd" x1="0" x2="1"><stop offset="0" stop-color="#168BFF"/><stop offset="1" stop-color="#F4D58A"/></linearGradient></defs>
-                    <text x="32" y="36" text-anchor="middle" font-size="12" font-weight="800" fill="#fff" font-family="Plus Jakarta Sans, sans-serif" data-count="87" data-suf="%">87%</text></svg>
+                    <text x="32" y="36" text-anchor="middle" font-size="12" font-weight="800" fill="#fff" font-family="Plus Jakarta Sans, sans-serif">87%</text></svg>
                 </div>
               </div>
             </div>
@@ -1745,7 +1663,7 @@ tr.db-more-row .btn{margin:0 4px;}
 
   <aside class="side">
     <div class="side-brand">
-      <div class="brand-tile"><img src="assets/emblem-gold.webp" alt="" width="198" height="217"></div>
+      <div class="brand-tile"><img src="assets/emblem.jpg" alt=""></div>
       <div class="brand-word">DBank<small>Branch Performance</small></div>
     </div>
     <div class="branch-card">
@@ -1768,7 +1686,7 @@ tr.db-more-row .btn{margin:0 4px;}
   <div class="main">
     <header class="appbar">
       <div class="ab-brand">
-        <div class="brand-tile"><img src="assets/emblem-gold.webp" alt="" width="198" height="217"></div>
+        <div class="brand-tile"><img src="assets/emblem.jpg" alt=""></div>
         <div class="brand-word" style="min-width:0">DBank<small id="headerBrandSub">Branch Performance</small></div>
       </div>
       <div class="ab-title">
@@ -11990,19 +11908,6 @@ function dbPrefillMyName(){
 
   /* ---- animasi masuk ---- */
   requestAnimationFrame(()=> screen.classList.add("lx-ready"));
-
-  /* ---- angka contoh dashboard naik perlahan ---- */
-  const reduce = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
-  if(!reduce) setTimeout(()=>{
-    screen.querySelectorAll("[data-count]").forEach(el=>{
-      const to = parseFloat(el.dataset.count), dec = +(el.dataset.dec || 0), pre = el.dataset.pre || "", suf = el.dataset.suf || "";
-      const fmt = v => pre + v.toLocaleString("id-ID", {minimumFractionDigits: dec, maximumFractionDigits: dec}) + suf;
-      const t0 = performance.now(), dur = 1400;
-      const step = now=>{ const k = Math.min(1, (now - t0) / dur), e = 1 - Math.pow(1 - k, 3);
-        el.textContent = fmt(dec ? to * e : Math.round(to * e)); if(k < 1) requestAnimationFrame(step); };
-      requestAnimationFrame(step);
-    });
-  }, 700);
 })();
 
 /* ============================================================

@@ -3,7 +3,7 @@
    - Halaman (index.html) selalu diambil dari jaringan dulu supaya update langsung terasa;
      cadangan offline dipakai hanya kalau jaringan putus.
    - Data (Google Apps Script) TIDAK PERNAH di-cache oleh service worker ini. */
-const CACHE = "dbank-shell-v10";
+const CACHE = "dbank-shell-v9";
 const SHELL = [
   "./",
   "./index.html",
